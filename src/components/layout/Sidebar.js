@@ -9,7 +9,7 @@ class Sidebar extends Component {
 
   render(){
     return (
-      <div className="col s2 l1 light blue lighten-3">
+      <div className="sidebar col s2 l1 light grey lighten-3">
         <ul className="lesson-list">
           <li id={0} onClick={this.handleClick}>Lesson 1</li>
           <li id={1} onClick={this.handleClick}>Lesson 2</li>

@@ -3,15 +3,18 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 // Replace this with your own config details
-var config = {
-  apiKey: "AIzaSyDo2HauU6PtL3PY6KthXdpIUzbDV908avo",
-  authDomain: "marioplan-files.firebaseapp.com",
-  databaseURL: "https://marioplan-files.firebaseio.com",
-  projectId: "marioplan-files",
-  storageBucket: "marioplan-files.appspot.com",
-  messagingSenderId: "1011174152626"
-};
-firebase.initializeApp(config);
-firebase.firestore().settings({ timestampsInSnapshots: true });
+  var firebaseConfig = {
+    apiKey: "AIzaSyCAAC1963H-F1zfeuxewA1ibL2FOCZ0ZTg",
+    authDomain: "korean-app-c9b8e.firebaseapp.com",
+    databaseURL: "https://korean-app-c9b8e.firebaseio.com",
+    projectId: "korean-app-c9b8e",
+    storageBucket: "korean-app-c9b8e.appspot.com",
+    messagingSenderId: "234154171232",
+    appId: "1:234154171232:web:fe92c1d0d464c0d7c0dc05",
+    measurementId: "G-BKSFJG1KZB"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.firestore()
 
 export default firebase 

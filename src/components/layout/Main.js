@@ -4,6 +4,7 @@ import Quiz from '../lessons/Quiz'
 import { connect } from 'react-redux'
 import Sidebar from './Sidebar'
 import { updateProgress } from '../../store/actions/ProgressActions'
+import { Redirect } from 'react-router-dom'
 
 class Main extends Component {
 
@@ -12,13 +13,14 @@ class Main extends Component {
   }
 
   render() {
-    const { lesson } = this.props
+    const { lesson, auth } = this.props
+    if (!auth.uid) return <Redirect to='/login' />
 
     return(
       <div className='row'>
 
         <Sidebar lesson={lesson} /> 
-        <div className="col s10 l11 container">
+        <div className="main col s10 l11 container">
          
           <div className="section content">
             <Lesson lesson={lesson} />
@@ -41,7 +43,8 @@ class Main extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    lesson: state.lesson.lesson
+    lesson: state.lesson.lesson,
+    auth: state.firebase.auth
   }
 }
 

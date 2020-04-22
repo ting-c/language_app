@@ -15,10 +15,11 @@ class App extends Component {
 
           <Navbar />
           <Switch>
-            <Route exact path='/' component={Main} />
+            <Route exact path='/'/>
             <Route path='/login' component={Login} />
             <Route path='/signup' component={SignUp} />
             <Route path='/progress' component={Progress} />
+            <Route path='/main' component={Main} />
           </Switch>
 
         </div>

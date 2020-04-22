@@ -1,5 +1,5 @@
 html, body {
-  height: 100%;
+  height: 100vh;
 }
 
 body {
@@ -16,10 +16,13 @@ code {
     monospace;
 }
 
-.col.s2, .col.s10 {
-  height: 100vh;
-};
+.main {
+  overflow-y: scroll;
+}
 
+.sidebar , .main {
+  height: 100vh;
+}
 
 .inactive {
   color: #fff;
