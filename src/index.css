@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,47 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.col.s2, .col.s10 {
+  height: 100vh;
+};
+
+
+.inactive {
+  color: #fff;
+  text-decoration: none;
+}
+
+.active {
+  color: white;
+  text-decoration: none;
+}
+
+.lesson-number{
+  text-align: center;
+  color: rgb(209, 26, 2);
+  font-size: 1.6em;
+}
+
+.lesson-title {
+  font-size: 1.9em;
+  font-family: serif;
+}
+
+.choice{
+  margin: 5px;
+  }
+
+.check-symbol{
+  margin-left: 5px;
+}
+
+.question-block{
+  margin-top:20px;
+}
+
+.question{
+  margin-left: 10px;
+  margin-top: 10px;
 }
