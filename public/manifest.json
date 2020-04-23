@@ -3,7 +3,7 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "200px-Flag_of_South_Korea.svg",
+      "src": "../src/components/img/south-korea.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
