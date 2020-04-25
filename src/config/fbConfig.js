@@ -11,7 +11,12 @@ import 'firebase/auth';
     storageBucket: "korean-app-c9b8e.appspot.com",
     messagingSenderId: "234154171232",
     appId: "1:234154171232:web:fe92c1d0d464c0d7c0dc05",
-    measurementId: "G-BKSFJG1KZB"
+    measurementId: "G-BKSFJG1KZB",
+    // profileSpecificProps
+    userProfile: 'users', // where profiles are stored in database,
+    useFirestoreForProfile: true,
+    enableRedirectHandling: false,
+    resetBeforeLogin: false
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

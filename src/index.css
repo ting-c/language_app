@@ -16,12 +16,12 @@ code {
     monospace;
 }
 
-.main {
-  overflow-y: scroll;
-}
-
 .sidebar , .main {
   height: 100vh;
+}
+
+.sidebar{
+  border-right: 1px solid grey;
 }
 
 .inactive {

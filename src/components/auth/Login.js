@@ -25,7 +25,7 @@ class Login extends Component {
   render() {
     const { authError, auth } = this.props
     if (auth.uid) return <Redirect to ='/main' />
-
+    console.log(this.props)
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">

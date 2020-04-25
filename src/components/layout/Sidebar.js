@@ -1,5 +1,6 @@
 import React , { Component } from 'react'
 import { connect } from 'react-redux'
+import lessonContent from '../lessons/LessonContent'
 
 class Sidebar extends Component {
 
@@ -8,13 +9,13 @@ class Sidebar extends Component {
   }
 
   render(){
+    const lessonList = lessonContent.map((lesson, index) => {
+      return <li id={index} key={index} onClick={this.handleClick}> Lesson {index + 1} </li>
+    });
     return (
-      <div className="sidebar col s2 l1 light grey lighten-3">
+      <div className="sidebar col s2 l1">
         <ul className="lesson-list">
-          <li id={0} onClick={this.handleClick}>Lesson 1</li>
-          <li id={1} onClick={this.handleClick}>Lesson 2</li>
-          <li>Lesson 3</li>
-          <li>Lesson 4</li>
+          {lessonList}
         </ul>
       </div>
     )

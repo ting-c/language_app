@@ -74,7 +74,7 @@ class Choices extends Component {
     return (
       <form onSubmit={this.checkAnswer}>
         {this.choicesList()}
-        <button>Check</button>
+        <button>Submit</button>
         <span className="check-symbol">{this.state.result}</span>
       </form>
     )

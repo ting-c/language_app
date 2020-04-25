@@ -3,19 +3,13 @@ import Lesson from '../lessons/Lesson'
 import Quiz from '../lessons/Quiz'
 import { connect } from 'react-redux'
 import Sidebar from './Sidebar'
-import { updateProgress } from '../../store/actions/ProgressActions'
 import { Redirect } from 'react-router-dom'
 
 class Main extends Component {
 
-  handleClick = () => {
-    this.props.updateProgress(this.props.lesson)
-  }
-
   render() {
     const { lesson, auth } = this.props
     if (!auth.uid) return <Redirect to='/login' />
-
     return(
       <div className='row'>
 
@@ -31,7 +25,7 @@ class Main extends Component {
             <Quiz lesson={lesson} />
 
           <div className="divider"></div>
-          <button onClick={this.handleClick}>Completed</button>
+          
         </div>
 
       </div>
@@ -48,10 +42,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateProgress: (lesson) => dispatch(updateProgress(lesson))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps)(Main)

@@ -4,7 +4,7 @@ import Navbar from './components/layout/Navbar'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
 import Main from './components/layout/Main'
-import Progress from './components/progress/Progress'
+import Profile from './components/layout/Profile'
 
 class App extends Component {
 
@@ -18,8 +18,8 @@ class App extends Component {
             <Route exact path='/'/>
             <Route path='/login' component={Login} />
             <Route path='/signup' component={SignUp} />
-            <Route path='/progress' component={Progress} />
             <Route path='/main' component={Main} />
+            <Route path='/profile' component={Profile} />
           </Switch>
 
         </div>
