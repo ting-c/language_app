@@ -1,0 +1,11 @@
+.HomePage {
+  display: flex;
+  justify-content: center;
+
+  .SkillMap{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+}

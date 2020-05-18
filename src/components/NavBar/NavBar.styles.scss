@@ -1,0 +1,17 @@
+.NavBar {
+  background-color: rgb(238, 234, 255);
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+
+  .logo-container {
+
+    .logo {
+      height: 60px;
+    }
+  }
+
+  .avatar {
+    height: 40px;
+  }
+}
