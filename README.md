@@ -1,4 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+KOREAN-APP
+
+## General info
+This project is a mobile-friendly language learning app.
+	
+## Technologies
+Project is created with:
+* React - version 16.13.1
+* BootStrap - version 4
+	
+## Setup
+To run this project, install it locally using npm:
 
 ## Available Scripts
 
