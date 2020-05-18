@@ -1,15 +1,18 @@
 import React from "react";
 import './HomePage.styles.scss';
-import SkillIcon from './../../components/Skill-Icon/Skill-Icon';
+import { Link } from 'react-router-dom';
+import Button from "react-bootstrap/Button";
 
 const HomePage = () => (
-  <div className="HomePage">
-    <div className='SkillMap'>
-      <SkillIcon title='Number 1'/>
-      <SkillIcon title='Number 2'/>
-      <SkillIcon title='Number 3'/>
-    </div>
-  </div>
+	<div className="HomePage">
+		<div className="header">Welcome to KOLEARN</div>
+		<Link to='/learn'><Button	className="get-started-button">
+			Get Started
+		</Button></Link>
+		<Button className="sign-in-button">
+      Sign In
+    </Button>
+	</div>
 );
 
 export default HomePage;

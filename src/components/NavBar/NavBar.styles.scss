@@ -5,13 +5,22 @@
   justify-content: space-between;
 
   .logo-container {
-
     .logo {
-      height: 60px;
+      height: 55px;
     }
   }
 
   .avatar {
     height: 40px;
+  }
+
+  .right-container {
+    margin-left: auto;
+    
+    .dropdown {
+      :after {
+        content: none;
+      }
+    }
   }
 }

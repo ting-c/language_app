@@ -2,6 +2,7 @@ import React from 'react';
 import './NavBar.styles.scss';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Nav from 'react-bootstrap/Nav';
 import logo from './../../img/logo.png';
 import avatar from './../../img/avatar.png';
 
@@ -12,11 +13,15 @@ const NavBar = () => (
 		</Navbar.Brand>
 		<Navbar.Toggle />
 		<Navbar.Collapse>
-			<NavDropdown
-				title={ <img className="avatar" src={avatar} alt="Avatar" /> }
-			>
-				<NavDropdown.Item>Sign In</NavDropdown.Item>
-			</NavDropdown>
+			<Nav className="right-container">
+				<NavDropdown
+					className="dropdown"
+          alignRight
+					title={<img className="avatar" src={avatar} alt="Avatar" />}
+				>
+					<NavDropdown.Item className='dropdown-item'>Sign In</NavDropdown.Item>
+				</NavDropdown>
+			</Nav>
 		</Navbar.Collapse>
 	</Navbar>
 );

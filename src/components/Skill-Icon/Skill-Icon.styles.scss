@@ -1,12 +1,13 @@
 .SkillIcon{
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   margin: 20px 0;
 
   .skill-icon-image-grey{
     height: 60px;
     width: 60px;
+    justify-self: center;
   }
   .skill-icon-title{
     font-size: 16px;
