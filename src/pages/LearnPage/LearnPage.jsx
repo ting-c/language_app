@@ -1,12 +1,13 @@
 import React from "react";
 import "./LearnPage.styles.scss";
+import { Link } from 'react-router-dom';
 import SkillIcon from "./../../components/Skill-Icon/Skill-Icon";
 
-const LearnPage = ({ history }) => (
+const LearnPage = () => (
 	<div className="LearnPage">
-		<div className="SkillMap">
-			<SkillIcon title="Number (Sino)" onClick={() => history.push('/skill')}/>
-			<SkillIcon title="Number (Native)" />
+		<div className="skill-map">
+			<Link to='/skill'><SkillIcon className='Skill-Icon' title="Number (Sino)" /></Link>
+			<Link to='/skill'><SkillIcon title="Number (Native)" /></Link>
 		</div>
 	</div>
 );
