@@ -1,6 +1,8 @@
 .LessonContainer {
   .introduction {
     margin: 5px;
+    white-space: pre-wrap;
+    text-align: left;
   }
 
   .card-group {
@@ -11,6 +13,13 @@
       width: 70px;
       height: 100px;
       margin: 5px;
+      padding: 2px;
+      border: 1px solid rgba(196, 196, 196, 0.486);
+      box-shadow: 0 2px rgba(156, 156, 156, 0.348);
+      text-align: center;
+      font-weight: 500;
+      font-size: 20px;
+    
     }
   }
 }

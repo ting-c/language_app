@@ -1,6 +1,6 @@
 import React from 'react';
 import './LessonContainer.styles.scss';
-import number_sino from './../../data-store/lesson-data/number_sino';
+import number_sino from '../../data-store/number_sino/number_sino';
 
 const LessonContainer = () => {
   const { introduction, number_list} = number_sino;

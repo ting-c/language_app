@@ -9,5 +9,9 @@
 
 a {
     text-decoration: none;
-    color: rgb(56, 55, 55);
+    color: rgb(55, 55, 55);
+  &:hover {
+    text-decoration: none;
+    color: rgb(55, 55, 55);
+  }
   }

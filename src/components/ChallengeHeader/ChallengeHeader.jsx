@@ -1,9 +1,9 @@
 import React from "react";
 import "./ChallengeHeader.styles.scss";
 
-const ChallengeHeader = () => (
+const ChallengeHeader = ({header}) => (
 	<div className="ChallengeHeader">
-		header
+		{header}
 	</div>
 );
 

@@ -1,9 +1,9 @@
 import React from "react";
 import "./ChallengeContent.styles.scss";
 
-const ChallengeContent = () => (
+const ChallengeContent = ({ content }) => (
 	<div className="ChallengeContent">
-    Content
+    {content}
 	</div>
 );
 

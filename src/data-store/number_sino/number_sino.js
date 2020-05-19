@@ -1,7 +1,7 @@
 const number_sino = {
-	introduction: `Did you know that the Korean language has two regularly used sets of numerals, a native Korean system and Sino-Korean system ? 
-  The “Sino number system” (eel, ee, sam, etc) is used for talking about sums of money, telephone numbers, etc.
-  `,
+  introduction: `Did you know that the Korean language has two regularly used sets of numerals, a native Korean system and Sino-Korean system ? The “Sino number system” (eel, ee, sam, etc) is used for talking about sums of money, telephone numbers, etc.
+  
+Click on the numbers to listen to the pronunciation`,
 
 	number_list: [
 		{ id: 1, numeral: 1, korean_char: "일", romanization: "eel" },
