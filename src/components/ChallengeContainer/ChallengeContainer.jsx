@@ -3,17 +3,27 @@ import './ChallengeContainer.styles.scss';
 import ChallengeHeader from './../ChallengeHeader/ChallengeHeader';
 import ChallengeContent from './../ChallengeContent/ChallengeContent';
 import ChallengeOptions from './../ChallengeOptions/ChallengeOptions';
-import { header, content, options, answer } from './../../data-store/number_sino/number_sino_challenge';
+import { generateChallenge } from './../../data-store/number_sino/number_sino_challenge';
 
 const ChallengeContainer = () => {
+	const { header, content, options, answer } = generateChallenge();
+	
 	const [selectedOptionId, optionClicked] = useState(null);
+	const [showFooter, checkButtonClicked] = useState(false);
+	const [footerMessage, changeFooterMessage] = useState(null);
+	const [footerColor, setFooterColor] = useState(null);
 
 	const checkAnswer = () => {
-			if (selectedOptionId === answer.id) {
-				console.log("answer is correct");
-			} else {
-				console.log("wrong answer");
-			}
+		if (selectedOptionId === null) return;
+
+		if (selectedOptionId === answer.id) {
+			changeFooterMessage("Correct!");
+			setFooterColor('green');
+		} else {
+			changeFooterMessage(`Correct answer : ${answer.korean_char}`);
+			setFooterColor("red");
+		}
+		checkButtonClicked(true);
 	}; 
 
 	return (
@@ -21,7 +31,14 @@ const ChallengeContainer = () => {
 			<ChallengeHeader {...{ header }} />
 			<ChallengeContent {...{ content }} />
 			<ChallengeOptions {...{ options, answer, optionClicked }} />
-			<button className='check-button' onClick={() => checkAnswer(answer.id)}>Check</button>
+			{ showFooter ? (
+					<div className={`footer-${footerColor}`}>
+						{footerMessage}
+					</div>
+				) : (
+					<button className='check-button' onClick={() => checkAnswer(answer.id)}>Check</button>
+				)
+			}
 		</div>
 	);};
 

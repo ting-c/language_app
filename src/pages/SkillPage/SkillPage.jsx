@@ -4,18 +4,27 @@ import LessonContainer from  './../../components/LessonContainer/LessonContainer
 import ChallengeContainer from  './../../components/ChallengeContainer/ChallengeContainer';
 
 const SkillPage = () => {
-
 	const [displayChallenge, setChallenge] = useState(false);
 	
 	return (
 		<div className="SkillPage">
-			<div className='button-group'>
-				<button onClick={() => setChallenge(false)}>Lesson</button>
-				<button onClick={() => setChallenge(true)}>Challenge</button>
-			</div>
-
-			{displayChallenge ? <ChallengeContainer /> : <LessonContainer />}
+			{displayChallenge ? (
+				<div>
+					<ChallengeContainer />
+					<button className="lesson-button" onClick={() => setChallenge(false)}>
+						Back to lesson
+					</button>
+				</div>
+			) : (
+				<div>
+					<LessonContainer />
+					<button className="challenge-button" onClick={() => setChallenge(true)}>
+						I'm ready for the challenge
+					</button>
+				</div>
+			)}
 		</div>
-	);};
+	);
+};
 
 export default SkillPage;
