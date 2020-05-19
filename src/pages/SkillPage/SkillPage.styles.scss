@@ -3,4 +3,14 @@
   flex-direction: column;
   justify-self: center;
   padding: 10px;
+
+  .button-group {
+    text-align: center;
+    
+    Button {
+      margin: 2px 5px;
+      font-weight: 500;
+    }
+  }
+
 }
