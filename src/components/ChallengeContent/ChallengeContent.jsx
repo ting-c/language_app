@@ -3,7 +3,7 @@ import "./ChallengeContent.styles.scss";
 
 const ChallengeContent = ({ content }) => (
 	<div className="ChallengeContent">
-    {content}
+    <div>{content.numeral}</div>
 	</div>
 );
 

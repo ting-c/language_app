@@ -12,9 +12,9 @@ const LessonContainer = () => {
       </div>
       <div className='card-group'>
       { number_list.map( number => {
-        const { numeral, korean_char, romanization } = number
+        const { id, numeral, korean_char, romanization } = number
         return (
-          <div className='card'>
+          <div className='card' key={id}>
             <div>{numeral}</div>
             <div>{korean_char}</div>
             <div>{romanization}</div>

@@ -1,16 +1,19 @@
 import React from 'react';
 import './ChallengeOptions.styles.scss';
+import Button from 'react-bootstrap/Button';
 
-const ChallengeOptions = ({incorrect_options, correct_option}) => (
-  <div className='ChallengeOptions'>
-    {incorrect_options.map(option => (
-      <div className='option'>
-        {option}
-      </div>
-    ))}
-    <div className='option'>{correct_option}</div>
-  </div>
-
-)
+const ChallengeOptions = ( {options, optionClicked} ) => {
+ 
+  return (
+    <div className='ChallengeOptions'>
+      { options.map(option => {
+        const { id, korean_char } = option;
+        return (
+          <Button className='option' key={id} onClick={() => optionClicked(id)}>
+            {korean_char}
+          </Button>
+        )})}
+    </div>
+)}
 
 export default ChallengeOptions;

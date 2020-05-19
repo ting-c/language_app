@@ -1,6 +1,27 @@
 .ChallengeOptions {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   text-align: center;
   margin: 10px;
+  width: 80%;
+  max-width: 600px;
+ 
+  .option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    font-size: 30px;
+    border: 1px solid rgba(201, 201, 201, 0.377);
+    border-radius: 20px;
+    box-shadow: 1px 2px rgba(173, 173, 173, 0.459);
+    width: 90px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    &:active, &:hover, &:checked, &:focus, &:target {
+      background-color: rgb(184, 184, 184);
+    }
+  }
 }
