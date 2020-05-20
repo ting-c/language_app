@@ -1,9 +1,9 @@
 import React from "react";
 import "./ChallengeContent.styles.scss";
 
-const ChallengeContent = ({ content }) => (
+const ChallengeContent = ({ content, contentType }) => (
 	<div className="ChallengeContent">
-    <div>{content.numeral}</div>
+		<div>{content[contentType] }</div>
 	</div>
 );
 

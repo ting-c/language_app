@@ -1,18 +1,21 @@
 import React from 'react';
 import './ChallengeOptions.styles.scss';
 
-const ChallengeOptions = ({ options, setCheckButtonAndOptionId }) => {
+const ChallengeOptions = ({
+	options,
+	optionsAndAnswerType,
+	setCheckButtonAndOptionId
+}) => {
 	return (
 		<div className="ChallengeOptions">
-			{options.map((option) => {
-				const { id, korean_char } = option;
+			{options.map( option => {
 				return (
 					<button
 						className="option"
-						key={id}
-						onClick={() => setCheckButtonAndOptionId(id)}
+						key={option.id}
+						onClick={() => setCheckButtonAndOptionId(option.id)}
 					>
-						{korean_char}
+						{option[optionsAndAnswerType]}
 					</button>
 				);
 			})}

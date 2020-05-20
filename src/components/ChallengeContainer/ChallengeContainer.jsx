@@ -3,15 +3,15 @@ import './ChallengeContainer.styles.scss';
 import ChallengeHeader from './../ChallengeHeader/ChallengeHeader';
 import ChallengeContent from './../ChallengeContent/ChallengeContent';
 import ChallengeOptions from './../ChallengeOptions/ChallengeOptions';
-import { generateChallenge } from './../../data-store/number_sino/number_sino_challenge';
 
-const ChallengeContainer = ({ header, content, options, answer, generateNextChallenge }) => {
+const ChallengeContainer = ({ header, content, contentType, options, answer, optionsAndAnswerType, setNextChallenge, generateChallenge }) => {
+
 	const [selectedOptionId, setSelectedOptionId] = useState(null);
 	const [checkButtonColor, setCheckButtonColor] = useState('grey');
 	const [showFooter, setShowFooter] = useState(false);
 	const [footerMessage, changeFooterMessage] = useState(null);
 	const [footerColor, setFooterColor] = useState(null);
-
+		
 	const checkAnswer = () => {
 		if (selectedOptionId === null) return;
 
@@ -19,7 +19,7 @@ const ChallengeContainer = ({ header, content, options, answer, generateNextChal
 			changeFooterMessage("Correct!");
 			setFooterColor("green");
 		} else {
-			changeFooterMessage(`Correct answer : ${answer.korean_char}`);
+			changeFooterMessage(`Correct answer : ${answer[optionsAndAnswerType]}`);
 			setFooterColor("red");
 		}
 		setShowFooter(true);
@@ -28,21 +28,20 @@ const ChallengeContainer = ({ header, content, options, answer, generateNextChal
 	const setCheckButtonAndOptionId = (optionId) => {
 		setCheckButtonColor('color');
 		setSelectedOptionId(optionId);
-
 	}
 
 	const continueNextChallenge = () => {
 		setShowFooter(false);
 		setCheckButtonColor('grey');
-		generateNextChallenge(generateChallenge);
+		setNextChallenge(generateChallenge);
 	}
 
 	return (
 		<div className="ChallengeContainer">
 			<ChallengeHeader {...{ header }} />
-			<ChallengeContent {...{ content }} />
-			<ChallengeOptions {...{ options, answer, setCheckButtonAndOptionId }} />
-			{showFooter ? (
+			<ChallengeContent {...{ content, contentType }} />
+			<ChallengeOptions options={options} optionsAndAnswerType={optionsAndAnswerType} setCheckButtonAndOptionId={setCheckButtonAndOptionId} />
+			{ showFooter ? (
 				<div className={`footer-${footerColor}`}>
 					<div>{footerMessage}</div>
 					<div>

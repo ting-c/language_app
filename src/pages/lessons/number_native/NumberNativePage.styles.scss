@@ -1,0 +1,53 @@
+.NumberNativePage {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  padding: 10px;
+  text-align: center;
+
+  .challenge-button {
+    margin: 20px 5px;
+    font-weight: 600;
+    height: 40px;
+    width: 200px;
+    border: none;
+    background-color: rgb(94, 118, 255);
+    border-radius: 4px;
+    color: white;
+    outline: none;
+    &:active {
+      background-color: rgb(184, 184, 184);
+      transform: translateY(2px);
+    }
+  }
+
+  .skill-map-button {
+    margin: 20px 5px;
+    font-weight: 600;
+    width: 100px;
+    height: 35px;
+    background-color:rgb(154, 126, 255);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    outline: none;
+  }
+
+  .lesson-button {
+    margin: 15px 5px;
+    font-weight: 800;
+    font-size: 14px;
+    height: 30px;
+    width: 100px;
+    border: none;
+    background-color: rgb(154, 126, 255);
+    border-radius: 4px;
+    color: white; 
+    outline: none;
+    &:active {
+      background-color: rgb(184, 184, 184);
+      transform: translateY(2px);
+    }
+  }
+
+}
