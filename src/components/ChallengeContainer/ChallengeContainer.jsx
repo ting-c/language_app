@@ -31,6 +31,7 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 	}
 
 	const continueNextChallenge = () => {
+		setSelectedOptionId(null);
 		setShowFooter(false);
 		setCheckButtonColor('grey');
 		setNextChallenge(generateChallenge);
