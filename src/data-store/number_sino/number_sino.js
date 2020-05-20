@@ -75,19 +75,31 @@ export const number_sino = {
 	],
 };
 
-
+const types = ['numeral', 'korean_char', 'romanization'];
+const generateRandomTypes = () => {
+		let bothAreSameTypes = true;
+		let contentType, optionsAndAnswerType;
+		while (bothAreSameTypes) {
+			contentType = types[Math.floor(Math.random() * types.length)];
+			optionsAndAnswerType = types[Math.floor(Math.random() * types.length)];
+			if (optionsAndAnswerType !== contentType) {
+				bothAreSameTypes = false;
+			}
+		}
+		return { contentType, optionsAndAnswerType };		
+	};
 
 export const generateChallenge = () => {
 	
-	const contentType = "numeral";
-	const optionsAndAnswerType = "korean_char";
-	const headerType = {
+	const { contentType, optionsAndAnswerType } = generateRandomTypes();
+
+	const convertTypeToText = {
 		korean_char: 'korean character',
 		numeral: 'numeral',
 		romanization: 'romanization',
+	};
 
-	}
-	const header = `Choose the correct ${headerType[optionsAndAnswerType]} for the ${contentType}`;
+	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
 	const number_list = number_sino.number_list;
 	const random_number =	number_list[Math.floor(Math.random() * number_list.length)];
