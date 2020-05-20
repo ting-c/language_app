@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  margin: 10px;
+  margin: 30px;
   width: 80%;
   max-width: 600px;
  
@@ -20,8 +20,10 @@
     height: 50px;
     background-color: white;
     color: black;
-    &:active, &:hover, &:checked, &:focus, &:target {
-      background-color: rgb(184, 184, 184);
+    outline: none;
+    &:active, &:visited, &:focus {
+      background-color: rgb(140, 180, 255);
+      transform: translateY(2px);
     }
   }
 }

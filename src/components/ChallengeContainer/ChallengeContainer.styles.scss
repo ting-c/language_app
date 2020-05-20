@@ -20,13 +20,27 @@
     background-color: rgb(255, 128, 128);
   }
 
-  .check-button {
+  .check-button-color {
+    background-color: rgb(94, 118, 255);
+    height: 40px;
+    width: 200px;
+    border: none;    
+    border-radius: 4px;
+    color: white;
+    outline: none;
+    &:active, &:visited, &:focus {
+      transform: translateY(2px);
+    }
+  }
+
+  .check-button-grey {
+    background-color: rgb(216, 216, 216);
     height: 40px;
     width: 200px;
     border: none;
-    background-color: rgb(94, 118, 255);
     border-radius: 4px;
-     color: white;
+    color: white;
+    outline: none;
   }
 
 }

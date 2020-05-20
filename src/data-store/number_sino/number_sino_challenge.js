@@ -15,7 +15,7 @@ export const generateChallenge = () => {
 	const content = random_number;
 	const options = unshuffled_options.sort(() => Math.random() - 0.5);
 
-	return {header, content, options};
+	return {header, content, options, answer};
 }
 
 

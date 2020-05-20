@@ -1,6 +1,7 @@
 import React from 'react';
 import './LessonContainer.styles.scss';
 import number_sino from '../../data-store/number_sino/number_sino';
+import CardGroup from './../CardGroup/CardGroup';
 
 const LessonContainer = () => {
   const { introduction, number_list} = number_sino;
@@ -10,17 +11,7 @@ const LessonContainer = () => {
       <div className='introduction' >
         { introduction }
       </div>
-      <div className='card-group'>
-      { number_list.map( number => {
-        const { id, numeral, korean_char, romanization } = number
-        return (
-          <div className='card' key={id}>
-            <div>{numeral}</div>
-            <div>{korean_char}</div>
-            <div>{romanization}</div>
-          </div>
-        )})}
-        </div>
+      <CardGroup number_list={number_list}/>
     </div>
   )
 };

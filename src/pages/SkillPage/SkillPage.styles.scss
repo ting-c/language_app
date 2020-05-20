@@ -13,7 +13,12 @@
     border: none;
     background-color: rgb(94, 118, 255);
     border-radius: 4px;
-    color: white; 
+    color: white;
+    outline: none;
+    &:active {
+      background-color: rgb(184, 184, 184);
+      transform: translateY(2px);
+    }
   }
   .lesson-button {
     margin: 15px 5px;
@@ -25,6 +30,11 @@
     background-color: rgb(154, 126, 255);
     border-radius: 4px;
     color: white; 
+    outline: none;
+    &:active {
+      background-color: rgb(184, 184, 184);
+      transform: translateY(2px);
+    }
   }
 
 }
