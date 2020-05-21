@@ -82,7 +82,7 @@ However the pronunciation and romanization of Korean consonant is determined by 
       id: 13,
       korean_char: "ㅍ",
       romanization: "p",
-      sound: "power",
+      sound: "p in power",
     },
     {
       id: 14,
@@ -119,14 +119,14 @@ export const generateChallenge = () => {
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
 	const consonant_list = basic_consonant.consonant_list;
-	const random_number = consonant_list[Math.floor(Math.random() * consonant_list.length)];
-	const incorrect_random_numbers = basic_consonant.consonant_list.filter(
-		(number) => number.id !== random_number.id
+	const random_option = consonant_list[Math.floor(Math.random() * consonant_list.length)];
+	const incorrect_random_options = basic_consonant.consonant_list.filter(
+		(option) => option.id !== random_option.id
 	);
 
-	const answer = random_number;
-	const content = random_number;
-	const incorrect_options = incorrect_random_numbers.slice(0, 3);
+	const answer = random_option;
+	const content = random_option;
+	const incorrect_options = incorrect_random_options.slice(0, 3);
 	const unshuffled_options = [...incorrect_options, answer];
 
 	const options = unshuffled_options.sort(() => Math.random() - 0.5);

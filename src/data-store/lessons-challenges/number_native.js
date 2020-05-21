@@ -91,15 +91,14 @@ export const generateChallenge = () => {
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
 	const number_list = number_native.number_list;
-	const random_number =
-		number_list[Math.floor(Math.random() * number_list.length)];
-	const incorrect_random_numbers = number_native.number_list.filter(
-		(number) => number.id !== random_number.id
+	const random_option =	number_list[Math.floor(Math.random() * number_list.length)];
+	const incorrect_random_options = number_native.number_list.filter(
+		(number) => number.id !== random_option.id
 	);
 
-	const answer = random_number;
-	const content = random_number;
-	const incorrect_options = incorrect_random_numbers.slice(0, 3);
+	const answer = random_option;
+	const content = random_option;
+	const incorrect_options = incorrect_random_options.slice(0, 3);
 	const unshuffled_options = [...incorrect_options, answer];
 
 	const options = unshuffled_options.sort(() => Math.random() - 0.5);
