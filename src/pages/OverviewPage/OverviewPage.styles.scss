@@ -1,0 +1,12 @@
+.OverviewPage {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  .overview-map {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+}

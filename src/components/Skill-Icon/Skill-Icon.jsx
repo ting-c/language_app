@@ -5,7 +5,7 @@ import skillIconImageGrey from "./../../img/skill-icon-grey.png";
 
 const SkillIcon = ({ title, id }) => (
 	<div className="SkillIcon">
-		<Link to={`skill/${id}`}>
+		<Link to={`number/${id}`}>
 			<img
 				className="skill-icon-image-grey"
 				src={skillIconImageGrey}
