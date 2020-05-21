@@ -1,0 +1,20 @@
+.CardGroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  .card {
+    width: 90px;
+    margin: 5px;
+    padding: 5px;
+    .card-top {
+      font-size: 20px;
+    }
+    .card-middle {
+      font-size: 30px;
+    }
+    .card-bottom {
+      font-size: 20px;
+    }
+  }
+}

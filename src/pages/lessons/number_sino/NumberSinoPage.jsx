@@ -3,7 +3,7 @@ import "./NumberSinoPage.styles.scss";
 import LessonContainer from "../../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../../components/ChallengeContainer/ChallengeContainer";
 import ChallengeButtonContainer from './../../../components/ChallengeButtonContainer/ChallengeButtonContainer';
-import SkillMapButtonContainer from './../../../components/SkillMapButtonContainer/SkillMapButtonContainer';
+import OverviewButtonContainer from './../../../components/OverviewButtonContainer/OverviewButtonContainer';
 import LessonButton from './../../../components/LessonButton/LessonButton';
 import { number_sino, generateChallenge } from './../../../data-store/lessons-challenges/number_sino';
 
@@ -39,7 +39,7 @@ const NumberSinoPage = () => {
 				<div>
 					<LessonContainer {...lessonProps} {...cardGroupProps} />
 					<ChallengeButtonContainer {...{setChallenge}}/>
-					<SkillMapButtonContainer />
+					<OverviewButtonContainer />
 				</div>
 			)}
 		</div>

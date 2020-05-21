@@ -8,7 +8,12 @@ const OverviewPage = () => (
 			<OverviewIcon
 				className="overview-Icon"
 				title="Number"
-				id="number"
+				link='/number'
+			/>
+			<OverviewIcon
+				className="overview-Icon"
+				title="Alphabet"
+				link='/alphabet'
 			/>
 		</div>
 	</div>

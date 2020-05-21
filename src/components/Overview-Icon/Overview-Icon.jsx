@@ -3,9 +3,9 @@ import './Overview-Icon.styles.scss';
 import { Link } from 'react-router-dom';
 import OverviewIconImageGrey from "./../../img/overview-icon-grey.png";
 
-const OverviewIcon = ({ title, id }) => (
+const OverviewIcon = ({ title, link }) => (
 	<div className="OverviewIcon">
-		<Link to={`skill/${id}`}>
+		<Link to={link}>
 			<img
 				className="overview-icon-image-grey"
 				src={OverviewIconImageGrey}

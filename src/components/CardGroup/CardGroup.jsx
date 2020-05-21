@@ -4,13 +4,13 @@ import "./CardGroup.styles.scss";
 const CardGroup = ({ list, top, middle, bottom }) => {
 
 	return (
-		<div className="card-group">
+		<div className="CardGroup">
 			{list.map((item) => {
 				return (
 					<div className="card" key={item.id}>
-						<div>{item[top]}</div>
-						<div>{item[middle]}</div>
-						<div>{item[bottom]}</div>
+						<div className="card-top">{item[top]}</div>
+						<div className="card-middle">{item[middle]}</div>
+						<div className="card-bottom">{item[bottom]}</div>
 					</div>
 				);
 			})}

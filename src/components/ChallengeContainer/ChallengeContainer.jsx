@@ -3,8 +3,16 @@ import './ChallengeContainer.styles.scss';
 import ChallengeHeader from './../ChallengeHeader/ChallengeHeader';
 import ChallengeContent from './../ChallengeContent/ChallengeContent';
 import ChallengeOptions from './../ChallengeOptions/ChallengeOptions';
+import correctSound from './../../data-store/audio/correct.mp3';
+import UIfx from 'uifx';
+
 
 const ChallengeContainer = ({ header, content, contentType, options, answer, optionsAndAnswerType, setNextChallenge, generateChallenge }) => {
+
+	const correct = new UIfx(
+		correctSound,
+		{ volume:1 }
+	);
 
 	const [selectedOptionId, setSelectedOptionId] = useState(null);
 	const [checkButtonColor, setCheckButtonColor] = useState('grey');
@@ -18,6 +26,7 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 		if (selectedOptionId === answer.id) {
 			changeFooterMessage("Correct!");
 			setFooterColor("green");
+			correct.play();
 		} else {
 			changeFooterMessage(`Correct answer : ${answer[optionsAndAnswerType]}`);
 			setFooterColor("red");
@@ -41,13 +50,17 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 		<div className="ChallengeContainer">
 			<ChallengeHeader {...{ header }} />
 			<ChallengeContent {...{ content, contentType }} />
-			<ChallengeOptions options={options} optionsAndAnswerType={optionsAndAnswerType} setCheckButtonAndOptionId={setCheckButtonAndOptionId} />
-			{ showFooter ? (
+			<ChallengeOptions
+				options={options}
+				optionsAndAnswerType={optionsAndAnswerType}
+				setCheckButtonAndOptionId={setCheckButtonAndOptionId}
+			/>
+			{showFooter ? (
 				<div className={`footer-${footerColor}`}>
 					<div>{footerMessage}</div>
 					<div>
 						<button
-							className={'continue-button'}
+							className={"continue-button"}
 							onClick={() => continueNextChallenge()}
 						>
 							Continue

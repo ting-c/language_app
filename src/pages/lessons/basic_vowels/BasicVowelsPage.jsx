@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import "./NumberNativePage.styles.scss";
+import "./BasicVowelsPage.styles.scss";
 import LessonContainer from "../../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../../components/ChallengeContainer/ChallengeContainer";
-import ChallengeButtonContainer from "./../../../components/ChallengeButtonContainer/ChallengeButtonContainer";
-import OverviewButtonContainer from "./../../../components/OverviewButtonContainer/OverviewButtonContainer";
-import LessonButton from "./../../../components/LessonButton/LessonButton";
-import { number_native,	generateChallenge } from "./../../../data-store/lessons-challenges/number_native";
+import ChallengeButtonContainer from "../../../components/ChallengeButtonContainer/ChallengeButtonContainer";
+import OverviewButtonContainer from "../../../components/OverviewButtonContainer/OverviewButtonContainer";
+import LessonButton from "../../../components/LessonButton/LessonButton";
+import { basic_vowels,	generateChallenge } from "../../../data-store/lessons-challenges/basic_vowels";
 
 
-const NumberNativePage = () => {
+const BasicVowelsPage = () => {
 	const lessonProps = {
-		lesson: number_native,
+		lesson: basic_vowels,
 	};
 
 	const cardGroupProps = {
-		listName: "number_list",
+		listName: "vowels_list",
 		cardProps: {
-			top: "numeral",
+			top: null,
 			middle: "korean_char",
-			bottom: "romanization",
+			bottom: 'romanization',
 		},
 	};
 
@@ -26,7 +26,7 @@ const NumberNativePage = () => {
 	const [challengeProps, setNextChallenge] = useState(generateChallenge());
 
 	return (
-		<div className="NumberSinoPage">
+		<div className="BasicVowelsPage">
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer
@@ -47,4 +47,4 @@ const NumberNativePage = () => {
 	);
 };
 
-export default NumberNativePage;
+export default BasicVowelsPage;

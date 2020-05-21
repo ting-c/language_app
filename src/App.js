@@ -4,7 +4,11 @@ import { Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import HomePage from './pages/HomePage/HomePage';
 import OverviewPage from './pages/OverviewPage/OverviewPage';
-import SkillPage from './pages/SkillPage/SkillPage';
+import AlphabetSkillPage from './pages/Skillpage/alphabet/AlphabetSkillPage';
+import NumberSkillPage from './pages/Skillpage/number/NumberSkillPage';
+import BasicConsonantPage from './pages/lessons/basic_consonant/BasicConsonantPage';
+import BasicVowelsPage from './pages/lessons/basic_vowels/BasicVowelsPage';
+import DoubleVowelsPage from './pages/lessons/double_vowels/DoubleVowelsPage';
 import NumberSinoPage from './pages/lessons/number_sino/NumberSinoPage';
 import NumberNativePage from './pages/lessons/number_native/NumberNativePage';
 
@@ -16,9 +20,13 @@ class App extends Component {
           <NavBar />
           <Route exact path='/' component={HomePage} />
           <Route exact path='/overview' component={OverviewPage} />
-          <Route exact path='/skill/:skill_id' component={SkillPage} />
-          <Route exact path='/skill/number/number_sino' component={NumberSinoPage} />
-          <Route exact path='/skill/number/number_native' component={NumberNativePage} />
+          <Route exact path='/alphabet' component={AlphabetSkillPage} />
+          <Route exact path='/number' component={NumberSkillPage} />
+          <Route exact path='/alphabet/basic_consonant' component={BasicConsonantPage} />
+          <Route exact path='/alphabet/basic_vowels' component={BasicVowelsPage} />
+          <Route exact path='/alphabet/double_vowels' component={DoubleVowelsPage} />
+          <Route exact path='/number/number_sino' component={NumberSinoPage} />
+          <Route exact path='/number/number_native' component={NumberNativePage} />
         </div>      
     );
   };

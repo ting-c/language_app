@@ -3,9 +3,9 @@ import './Skill-Icon.styles.scss';
 import { Link } from 'react-router-dom';
 import skillIconImageGrey from "./../../img/skill-icon-grey.png";
 
-const SkillIcon = ({ title, id }) => (
+const SkillIcon = ({ title, link }) => (
 	<div className="SkillIcon">
-		<Link to={`number/${id}`}>
+		<Link to={link}>
 			<img
 				className="skill-icon-image-grey"
 				src={skillIconImageGrey}
