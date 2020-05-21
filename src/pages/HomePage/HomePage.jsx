@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 const HomePage = () => (
 	<div className="HomePage">
 		<div className="header">Welcome to KOLEARN</div>
-		<Link to='/learn'><Button	className="get-started-button">
+		<Link to='/skill'><Button	className="get-started-button">
 			Get Started
 		</Button></Link>
 		<Button className="sign-in-button">

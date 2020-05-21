@@ -1,9 +1,9 @@
 import React from "react";
-import "./LearnPage.styles.scss";
-import SkillIcon from "./../../components/Skill-Icon/Skill-Icon";
+import "./SkillPage.styles.scss";
+import SkillIcon from "../../components/Skill-Icon/Skill-Icon";
 
-const LearnPage = () => (
-	<div className="LearnPage">
+const SkillPage = () => (
+	<div className="SkillPage">
 		<div className="skill-map">
 			<SkillIcon
 				className="Skill-Icon"
@@ -20,4 +20,4 @@ const LearnPage = () => (
 	</div>
 );
 
-export default LearnPage;
+export default SkillPage;
