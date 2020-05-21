@@ -28,7 +28,7 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 			setFooterColor("green");
 			correct.play();
 		} else {
-			changeFooterMessage(`Correct answer : ${answer[optionsAndAnswerType]}`);
+			changeFooterMessage(`Answer : ${answer[optionsAndAnswerType]}`);
 			setFooterColor("red");
 		}
 		setShowFooter(true);
