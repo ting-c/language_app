@@ -2,15 +2,31 @@ import React, { useState } from "react";
 import "./NumberNativePage.styles.scss";
 import LessonContainer from "../../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../../components/ChallengeContainer/ChallengeContainer";
-import SkillMapButton from './../../../components/SkillMapButton/SkillMapButton';
+import ChallengeButtonContainer from "./../../../components/ChallengeButtonContainer/ChallengeButtonContainer";
+import SkillMapButtonContainer from "./../../../components/SkillMapButtonContainer/SkillMapButtonContainer";
+import LessonButton from "./../../../components/LessonButton/LessonButton";
 import { number_native,	generateChallenge } from "./../../../data-store/lessons-challenges/number_native";
 
+
 const NumberNativePage = () => {
+	const lessonProps = {
+		lesson: number_native,
+	};
+
+	const cardGroupProps = {
+		listName: "number_list",
+		cardProps: {
+			top: "numeral",
+			middle: "korean_char",
+			bottom: "romanization",
+		},
+	};
+
 	const [displayChallenge, setChallenge] = useState(false);
 	const [challengeProps, setNextChallenge] = useState(generateChallenge());
 
 	return (
-		<div className="NumberNativePage">
+		<div className="NumberSinoPage">
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer
@@ -18,24 +34,13 @@ const NumberNativePage = () => {
 						{...{ setNextChallenge }}
 						{...{ generateChallenge }}
 					/>
-					<button className="lesson-button" onClick={() => setChallenge(false)}>
-						Back to lesson
-					</button>
+					<LessonButton {...{ setChallenge }} />
 				</div>
 			) : (
 				<div>
-					<LessonContainer lesson={number_native} />
-					<div className="challenge-button-container">
-						<button
-							className="challenge-button"
-							onClick={() => setChallenge(true)}
-						>
-							I'm ready for the challenge
-						</button>
-					</div>
-					<div className="skill-map-button-container">
-						<SkillMapButton />
-					</div>
+					<LessonContainer {...lessonProps} {...cardGroupProps} />
+					<ChallengeButtonContainer {...{ setChallenge }} />
+					<SkillMapButtonContainer />
 				</div>
 			)}
 		</div>

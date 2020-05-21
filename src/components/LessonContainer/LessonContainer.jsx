@@ -2,15 +2,17 @@ import React from 'react';
 import './LessonContainer.styles.scss';
 import CardGroup from './../CardGroup/CardGroup';
 
-const LessonContainer = ({lesson}) => {
-  const { introduction, number_list} = lesson;
+const LessonContainer = ({lesson, listName, cardProps}) => {
+
+  const introduction = lesson.introduction;
+  const list = lesson[listName]
 
   return (    
     <div className='LessonContainer'>
       <div className='introduction' >
         { introduction }
       </div>
-      <CardGroup number_list={number_list}/>
+      <CardGroup {...{list}} {...cardProps}/>
     </div>
   )
 };
