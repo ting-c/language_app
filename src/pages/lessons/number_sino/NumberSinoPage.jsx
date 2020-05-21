@@ -3,7 +3,7 @@ import "./NumberSinoPage.styles.scss";
 import LessonContainer from "../../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../../components/ChallengeContainer/ChallengeContainer";
 import SkillMapButton from './../../../components/SkillMapButton/SkillMapButton';
-import { number_sino, generateChallenge } from './../../../data-store/number_sino/number_sino';
+import { number_sino, generateChallenge } from './../../../data-store/lessons-challenges/number_sino';
 
 const NumberSinoPage = () => {
 	const [displayChallenge, setChallenge] = useState(false);

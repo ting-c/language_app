@@ -3,10 +3,7 @@ import "./NumberNativePage.styles.scss";
 import LessonContainer from "../../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../../components/ChallengeContainer/ChallengeContainer";
 import SkillMapButton from './../../../components/SkillMapButton/SkillMapButton';
-import {
-	number_native,
-	generateChallenge,
-} from "./../../../data-store/number_native/number_native";
+import { number_native,	generateChallenge } from "./../../../data-store/lessons-challenges/number_native";
 
 const NumberNativePage = () => {
 	const [displayChallenge, setChallenge] = useState(false);
