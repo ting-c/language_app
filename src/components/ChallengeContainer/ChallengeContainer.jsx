@@ -3,9 +3,11 @@ import './ChallengeContainer.styles.scss';
 import ChallengeHeader from './../ChallengeHeader/ChallengeHeader';
 import ChallengeContent from './../ChallengeContent/ChallengeContent';
 import ChallengeOptions from './../ChallengeOptions/ChallengeOptions';
+import ChallengeCompleteContainer from './../ChallengeCompleteContainer/ChallengeCompleteContainer';
 import correctSound from './../../data-store/audio/correct.mp3';
 import wrongSound from './../../data-store/audio/wrong.mp3';
 import UIfx from 'uifx';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 const ChallengeContainer = ({ header, content, contentType, options, answer, optionsAndAnswerType, setNextChallenge, generateChallenge }) => {
@@ -24,6 +26,7 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 	const [showFooter, setShowFooter] = useState(false);
 	const [footerMessage, changeFooterMessage] = useState(null);
 	const [footerColor, setFooterColor] = useState(null);
+	const [progress, setProgress] = useState(0);
 		
 	const checkAnswer = () => {
 		if (selectedOptionId === null) return;
@@ -32,10 +35,12 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 			changeFooterMessage("Correct!");
 			setFooterColor("green");
 			correct.play();
+			setProgress(progress + 10);
 		} else {
 			changeFooterMessage(`Answer : ${answer[optionsAndAnswerType]}`);
 			setFooterColor("red");
 			wrong.play();
+			if (progress !== 0) {setProgress(progress - 10)};
 		}
 		setShowFooter(true);
 	};
@@ -54,34 +59,41 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 
 	return (
 		<div className="ChallengeContainer">
-			<ChallengeHeader {...{ header }} />
-			<ChallengeContent {...{ content, contentType }} />
-			<ChallengeOptions
-				options={options}
-				optionsAndAnswerType={optionsAndAnswerType}
-				setCheckButtonAndOptionId={setCheckButtonAndOptionId}
-			/>
-			{showFooter ? (
-				<div className={`footer-${footerColor}`}>
-					<div>{footerMessage}</div>
-					<div>
+			{ progress === 100 ? (
+				<ChallengeCompleteContainer />
+				) : (
+				<div className='display-challenge'>
+					<ProgressBar animated now={progress} />
+					<ChallengeHeader {...{ header }} />
+					<ChallengeContent {...{ content, contentType }} />
+					<ChallengeOptions
+						options={options}
+						optionsAndAnswerType={optionsAndAnswerType}
+						setCheckButtonAndOptionId={setCheckButtonAndOptionId}
+					/>
+					{showFooter ? (
+						<div className={`footer-${footerColor}`}>
+							<div>{footerMessage}</div>
+							<div>
+								<button
+									className={"continue-button"}
+									onClick={() => continueNextChallenge()}
+								>
+									Continue
+								</button>
+							</div>
+						</div>
+					) : (
 						<button
-							className={"continue-button"}
-							onClick={() => continueNextChallenge()}
+							className={`check-button-${checkButtonColor}`}
+							onClick={() => checkAnswer()}
 						>
-							Continue
+							Check
 						</button>
-					</div>
+					)}
 				</div>
-			) : (
-				<button
-					className={`check-button-${checkButtonColor}`}
-					onClick={() => checkAnswer()}
-				>
-					Check
-				</button>
-			)}
-		</div>
+				)}
+			</div>
 	);
 };
 

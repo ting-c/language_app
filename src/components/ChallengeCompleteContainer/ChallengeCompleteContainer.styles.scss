@@ -1,0 +1,18 @@
+.challenge-complete-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  .trophy-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .trophy-image{
+      height: 200px;
+    }
+    .trophy-text {
+      font-size: 25px;
+    }
+  }
+
+}
