@@ -1,5 +1,5 @@
-export const basic_consonant = {
-  title: "Basic Consonant",
+export const basic_consonants = {
+  title: "Basic Consonants",
 
   introduction: `The Korean Language (Hangul) has nineteen consonants and there are fourteen basic consonants (ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ). Five basic consonants were created by inspiration from the shape of the oral cavity. “ㄱ ㄴ ㅁ ㅅ ㅇ” are the five letters and they formed the basis of other consonant letters. Notice that these letters  ㄷ, ㅂ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ all look similar to the five consontant letters with slight modifications. 
 
@@ -118,10 +118,10 @@ export const generateChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const consonant_list = basic_consonant.consonant_list;
+	const consonant_list = basic_consonants.consonant_list;
 	const random_option = consonant_list[Math.floor(Math.random() * consonant_list.length)];
-	const incorrect_random_options = basic_consonant.consonant_list.filter(
-		(option) => option.id !== random_option.id
+	const incorrect_random_options = basic_consonants.consonant_list.filter(
+		option => option.id !== random_option.id
 	);
 
 	const answer = random_option;

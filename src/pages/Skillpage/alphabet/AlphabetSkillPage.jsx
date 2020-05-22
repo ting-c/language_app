@@ -7,8 +7,8 @@ const AlphabetSkillPage = () => (
 		<div className="skill-map">
 			<SkillIcon
 				className="Skill-Icon"
-				title="Basic Consonant"
-				link='alphabet/basic_consonant'
+				title="Basic Consonants"
+				link='alphabet/basic_consonants'
 			/>
 			<SkillIcon
 				className="Skill-Icon"

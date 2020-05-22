@@ -4,6 +4,7 @@ import ChallengeHeader from './../ChallengeHeader/ChallengeHeader';
 import ChallengeContent from './../ChallengeContent/ChallengeContent';
 import ChallengeOptions from './../ChallengeOptions/ChallengeOptions';
 import correctSound from './../../data-store/audio/correct.mp3';
+import wrongSound from './../../data-store/audio/wrong.mp3';
 import UIfx from 'uifx';
 
 
@@ -11,6 +12,10 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 
 	const correct = new UIfx(
 		correctSound,
+		{ volume:1 }
+	);
+	const wrong = new UIfx(
+		wrongSound,
 		{ volume:1 }
 	);
 
@@ -30,6 +35,7 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 		} else {
 			changeFooterMessage(`Answer : ${answer[optionsAndAnswerType]}`);
 			setFooterColor("red");
+			wrong.play();
 		}
 		setShowFooter(true);
 	};

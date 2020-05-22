@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import "./BasicConsonantPage.styles.scss";
+import "./BasicConsonantsPage.styles.scss";
 import LessonContainer from "../../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../../components/ChallengeContainer/ChallengeContainer";
 import ChallengeButtonContainer from "../../../components/ChallengeButtonContainer/ChallengeButtonContainer";
 import OverviewButtonContainer from "../../../components/OverviewButtonContainer/OverviewButtonContainer";
 import LessonButton from "../../../components/LessonButton/LessonButton";
-import { basic_consonant,	generateChallenge } from "../../../data-store/lessons-challenges/basic_consonant";
+import { basic_consonants,	generateChallenge } from "../../../data-store/lessons-challenges/basic_consonants";
 
 
-const BasicConsonantPage = () => {
+const BasicConsonantsPage = () => {
 	const lessonProps = {
-		lesson: basic_consonant,
+		lesson: basic_consonants,
 	};
 
 	const cardGroupProps = {
@@ -26,7 +26,7 @@ const BasicConsonantPage = () => {
 	const [challengeProps, setNextChallenge] = useState(generateChallenge());
 
 	return (
-		<div className="BasicConsonantPage">
+		<div className="BasicConsonantsPage">
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer
@@ -47,4 +47,4 @@ const BasicConsonantPage = () => {
 	);
 };
 
-export default BasicConsonantPage;
+export default BasicConsonantsPage;
