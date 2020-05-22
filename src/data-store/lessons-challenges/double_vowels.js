@@ -62,9 +62,10 @@ export const double_vowels = {
   ],
 };
 
-const types = ["korean_char", "romanization"];
 const generateRandomTypes = () => {
-	let bothAreSameTypes = true;
+  const types = ["korean_char", "romanization"];
+  
+  let bothAreSameTypes = true;
 	let contentType, optionsAndAnswerType;
 	while (bothAreSameTypes) {
 		contentType = types[Math.floor(Math.random() * types.length)];
@@ -79,6 +80,9 @@ const generateRandomTypes = () => {
 export const generateChallenge = () => {
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
+	const lesson_name = double_vowels;
+	const list_name = "vowels_list";
+
 	const convertTypeToText = {
 		korean_char: "korean character",
 		romanization: "romanization",
@@ -86,10 +90,10 @@ export const generateChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const vowels_list = double_vowels.vowels_list;
-	const random_option = vowels_list[Math.floor(Math.random() * vowels_list.length)];
-	const incorrect_random_options = double_vowels.vowels_list.filter(
-		(number) => number.id !== random_option.id
+	const list = lesson_name[list_name];
+	const random_option = list[Math.floor(Math.random() * list.length)];
+	const incorrect_random_options = list.filter(
+		option => option.id !== random_option.id
 	);
 
 	const answer = random_option;

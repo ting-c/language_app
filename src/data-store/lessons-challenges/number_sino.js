@@ -89,9 +89,11 @@ const generateRandomTypes = () => {
 		return { contentType, optionsAndAnswerType };		
 	};
 
-export const generateChallenge = () => {
-	
+export const generateChallenge = () => {	
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
+
+	const lesson_name = number_sino;
+	const list_name = "number_list";	
 
 	const convertTypeToText = {
 		korean_char: 'korean character',
@@ -101,10 +103,10 @@ export const generateChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const number_list = number_sino.number_list;
-	const random_option =	number_list[Math.floor(Math.random() * number_list.length)];
-	const incorrect_random_options = number_sino.number_list.filter(
-		(number) => number.id !== random_option.id
+	const list = lesson_name[list_name];
+	const random_option = list[Math.floor(Math.random() * list.length)];
+	const incorrect_random_options = list.filter(
+		option => option.id !== random_option.id
 	);
 
 	const answer = random_option;

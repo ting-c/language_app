@@ -93,8 +93,9 @@ However the pronunciation and romanization of Korean consonant is determined by 
   ],
 };
 
-const types = ["korean_char", "romanization"];
 const generateRandomTypes = () => {
+  const types = ["korean_char", "romanization"];
+  
 	let bothAreSameTypes = true;
 	let contentType, optionsAndAnswerType;
 	while (bothAreSameTypes) {
@@ -108,7 +109,10 @@ const generateRandomTypes = () => {
 };
 
 export const generateChallenge = () => {
-	const { contentType, optionsAndAnswerType } = generateRandomTypes();
+  const { contentType, optionsAndAnswerType } = generateRandomTypes();
+  
+  const lesson_name = basic_consonants;
+  const list_name = 'consonant_list';
 
 	const convertTypeToText = {
 		korean_char: "korean character",
@@ -118,9 +122,9 @@ export const generateChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const consonant_list = basic_consonants.consonant_list;
-	const random_option = consonant_list[Math.floor(Math.random() * consonant_list.length)];
-	const incorrect_random_options = basic_consonants.consonant_list.filter(
+	const list = lesson_name[list_name];
+	const random_option = list[Math.floor(Math.random() * list.length)];
+	const incorrect_random_options = list.filter(
 		option => option.id !== random_option.id
 	);
 

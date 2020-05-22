@@ -65,8 +65,9 @@ export const number_native = {
 	],
 };
 
-const types = ["numeral", "korean_char", "romanization"];
 const generateRandomTypes = () => {
+	const types = ["numeral", "korean_char", "romanization"];
+	
 	let bothAreSameTypes = true;
 	let contentType, optionsAndAnswerType;
 	while (bothAreSameTypes) {
@@ -82,6 +83,9 @@ const generateRandomTypes = () => {
 export const generateChallenge = () => {
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
+	const lesson_name = number_native;
+	const list_name = "number_list";
+
 	const convertTypeToText = {
 		korean_char: "korean character",
 		numeral: "numeral",
@@ -90,10 +94,10 @@ export const generateChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const number_list = number_native.number_list;
-	const random_option =	number_list[Math.floor(Math.random() * number_list.length)];
-	const incorrect_random_options = number_native.number_list.filter(
-		(number) => number.id !== random_option.id
+	const list = lesson_name[list_name];
+	const random_option = list[Math.floor(Math.random() * list.length)];
+	const incorrect_random_options = list.filter(
+		option => option.id !== random_option.id
 	);
 
 	const answer = random_option;
