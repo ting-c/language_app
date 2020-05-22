@@ -34,8 +34,8 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 		if (selectedOptionId === answer.id) {
 			changeFooterMessage("Correct!");
 			setFooterColor("green");
-			correct.play();
-			setProgress(progress + 10);
+			if (progress < 100) correct.play();
+			setProgress(progress + 15);
 		} else {
 			changeFooterMessage(`Answer : ${answer[optionsAndAnswerType]}`);
 			setFooterColor("red");
@@ -59,7 +59,7 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 
 	return (
 		<div className="ChallengeContainer">
-			{ progress === 100 ? (
+			{ progress >= 100 ? (
 				<ChallengeCompleteContainer />
 				) : (
 				<div className='display-challenge'>
