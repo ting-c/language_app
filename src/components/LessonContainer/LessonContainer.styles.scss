@@ -1,26 +1,8 @@
 .LessonContainer {
   .introduction {
-    margin: 5px;
+    margin: 0.1rem 0.1rem 1rem 0.1rem;
     white-space: pre-wrap;
     text-align: left;
     font-size: 18px;
-  }
-
-  .card-group {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    .card {
-      width: 80px;
-      height: 110px;
-      margin: 5px;
-      padding: 2px;
-      border: 1px solid rgba(196, 196, 196, 0.486);
-      border-radius: 7px;
-      box-shadow: 0 2px rgba(156, 156, 156, 0.348);
-      text-align: center;
-      font-weight: 500;
-      font-size: 23px;
-    }
   }
 }

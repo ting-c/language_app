@@ -20,6 +20,7 @@ const ProgressProvider = ({ children }) => {
     localStorage.setItem('localBasicConsonants', JSON.stringify(basicConsonants));
     localStorage.setItem('localBasicVowels', JSON.stringify(basicVowels));
     localStorage.setItem('localDoubleVowels', JSON.stringify(doubleVowels));
+    localStorage.setItem("localDoubleVowels", JSON.stringify(basicWords1));
     }, 
   );
   const [numberSino, setNumberSino] = useState(
@@ -28,28 +29,33 @@ const ProgressProvider = ({ children }) => {
   const [numberNative, setNumberNative] = useState(
 		JSON.parse(localStorage.getItem("localNumberNative")) || false
 	);
-  const [basicConsonants, setbasicConsonants] = useState(
+  const [basicConsonants, setBasicConsonants] = useState(
 		JSON.parse(localStorage.getItem("localBasicConsonants")) || false
 	);
-  const [basicVowels, setbasicVowels] = useState(
+  const [basicVowels, setBasicVowels] = useState(
 		JSON.parse(localStorage.getItem("localBasicVowels")) || false
 	);
-  const [doubleVowels, setdoubleVowels] = useState(
+  const [doubleVowels, setDoubleVowels] = useState(
 		JSON.parse(localStorage.getItem("localDoubleVowels")) || false
-    );
+  );
+  const [basicWords1, setBasicWords1] = useState(
+		JSON.parse(localStorage.getItem("localDoubleVowels")) || false
+	);
   
   const toggleNumberSino = (val) => setNumberSino(val);
   const toggleNumberNative = (val) => setNumberNative(val);
-  const toggleBasicConsonants = (val) => setbasicConsonants(val);
-  const toggleBasicVowels = (val) => setbasicVowels(val);
-  const toggleDoubleVowels = (val) => setdoubleVowels(val);
+  const toggleBasicConsonants = (val) => setBasicConsonants(val);
+  const toggleBasicVowels = (val) => setBasicVowels(val);
+  const toggleDoubleVowels = (val) => setDoubleVowels(val);
+  const toggleBasicWords1 = (val) => setBasicWords1(val);
 
   const resetProgress = () => {
     setNumberSino(false);
     setNumberNative(false);
-    setbasicConsonants(false);
-    setNumberSino(false);
-    setNumberSino(false);
+    setBasicConsonants(false);
+    setBasicVowels(false);
+    setDoubleVowels(false);
+    setBasicWords1(false);
   }
 
   const number = (numberSino && numberNative) || false;
@@ -70,6 +76,7 @@ const ProgressProvider = ({ children }) => {
         toggleBasicConsonants,
         toggleBasicVowels,
         toggleDoubleVowels,
+        toggleBasicWords1,
         resetProgress
       }}
     >

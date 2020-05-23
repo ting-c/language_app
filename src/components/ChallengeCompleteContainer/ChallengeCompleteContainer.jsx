@@ -12,7 +12,8 @@ const ChallengeCompleteContainer = ({lesson_name}) => {
 		toggleNumberNative,
 		toggleBasicConsonants,
 		toggleBasicVowels,
-		toggleDoubleVowels
+		toggleDoubleVowels,
+		toggleBasicWords1
 	} = useContext(ProgressContext);
 
 	useEffect( () => {
@@ -32,6 +33,9 @@ const ChallengeCompleteContainer = ({lesson_name}) => {
 				break
 			case 'DOUBLE_VOWELS':
 				toggleDoubleVowels(true);
+				break
+			case 'BASIC_WORDS_1':
+				toggleBasicWords1(true);
 				break
 			default:
 		}

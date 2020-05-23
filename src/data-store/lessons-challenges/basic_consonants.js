@@ -1,7 +1,7 @@
 export const basic_consonants = {
   title: "Basic Consonants",
 
-  introduction: `The Korean Language (Hangul) has nineteen consonants and there are fourteen basic consonants (ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ). Five basic consonants were created by inspiration from the shape of the oral cavity. “ㄱ ㄴ ㅁ ㅅ ㅇ” are the five letters and they formed the basis of other consonant letters. Notice that these letters  ㄷ, ㅂ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ all look similar to the five consontant letters with slight modifications. 
+  introduction: `The Korean Language (Hangul) has nineteen consonants and there are fourteen basic consonants (ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ). Five basic consonants were created by inspiration from the shape of the oral cavity. “ㄱ ㄴ ㅁ ㅅ ㅇ” are the five letters and they formed the basis of other consonant letters. Notice that these letters  ㄷ, ㅂ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ all look similar to the five consonant letters with slight modifications. 
 
 However the pronunciation and romanization of Korean consonant is determined by whether the consonant appears at the beginning or end of the syllable. For now, we will focus on the pronunciation that each consonant has at the beginning of a syllable.`,
 

@@ -27,6 +27,12 @@ const AlphabetSkillPage = () => {
 				link="alphabet/double_vowels"
 				completed={doubleVowels}
 			/>
+			<SkillIcon
+				className="Skill-Icon"
+				title="Basic Words 1"
+				link="alphabet/basic_words_1"
+				completed={doubleVowels}
+			/>
 		</div>
 	</div>
 )};
