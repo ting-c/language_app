@@ -11,7 +11,7 @@ const SkillIcon = ({ title, link, completed }) => {
 	<div className="SkillIcon">
 		<Link to={link}>
 			<img
-				className="skill-icon-image-grey"
+				className="skill-icon-image"
 				src={iconImage}
 				alt="skill icon incomplete"
 			/>
