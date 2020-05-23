@@ -16,8 +16,21 @@
 
   .right-container {
     margin-left: auto;
+
+
     
     .dropdown {
+      
+
+      .dropdown-item {
+        margin: 0.3em; 
+        font-size: 0.5 rem;     
+        font-weight: 500;
+      }
+      .divider {
+        width: 100%;
+        height: 0.4rem;
+      }
       :after {
         content: none;
       }

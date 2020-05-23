@@ -44,6 +44,14 @@ const ProgressProvider = ({ children }) => {
   const toggleBasicVowels = (val) => setbasicVowels(val);
   const toggleDoubleVowels = (val) => setdoubleVowels(val);
 
+  const resetProgress = () => {
+    setNumberSino(false);
+    setNumberNative(false);
+    setbasicConsonants(false);
+    setNumberSino(false);
+    setNumberSino(false);
+  }
+
   const number = (numberSino && numberNative) || false;
   const alphabet = (basicConsonants && basicVowels && doubleVowels) || false
 
@@ -61,7 +69,8 @@ const ProgressProvider = ({ children }) => {
         toggleNumberNative,
         toggleBasicConsonants,
         toggleBasicVowels,
-        toggleDoubleVowels
+        toggleDoubleVowels,
+        resetProgress
       }}
     >
       {children}
