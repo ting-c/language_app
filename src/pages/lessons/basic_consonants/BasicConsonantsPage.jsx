@@ -9,6 +9,9 @@ import { basic_consonants,	generateChallenge } from "../../../data-store/lessons
 
 
 const BasicConsonantsPage = () => {
+
+	const challengeCompleteProps = { lesson_name: "BASIC_CONSONANTS" };
+
 	const lessonProps = {
 		lesson: basic_consonants,
 	};
@@ -30,6 +33,8 @@ const BasicConsonantsPage = () => {
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer
+						{...{challengeCompleteProps}}
+						{...lessonProps}
 						{...challengeProps}
 						{...{ setNextChallenge }}
 						{...{ generateChallenge }}

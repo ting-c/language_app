@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
-
+import ProgressProvider from "./providers/progress_provider";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <ProgressProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+  </ProgressProvider>,
   document.getElementById('root')
 );
 

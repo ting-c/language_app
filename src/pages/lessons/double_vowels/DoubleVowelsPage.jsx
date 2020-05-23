@@ -9,6 +9,9 @@ import { double_vowels,	generateChallenge } from "../../../data-store/lessons-ch
 
 
 const DoubleVowelsPage = () => {
+
+	const challengeCompleteProps = { lesson_name: "DOUBLE_VOWELS" };
+
 	const lessonProps = {
 		lesson: double_vowels,
 	};
@@ -30,6 +33,7 @@ const DoubleVowelsPage = () => {
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer
+						{...{challengeCompleteProps}}
 						{...challengeProps}
 						{...{ setNextChallenge }}
 						{...{ generateChallenge }}

@@ -9,6 +9,9 @@ import { basic_vowels,	generateChallenge } from "../../../data-store/lessons-cha
 
 
 const BasicVowelsPage = () => {
+
+	const challengeCompleteProps = { lesson_name: "BASIC_VOWELS" };
+
 	const lessonProps = {
 		lesson: basic_vowels,
 	};
@@ -30,6 +33,7 @@ const BasicVowelsPage = () => {
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer
+						{...{challengeCompleteProps}}
 						{...challengeProps}
 						{...{ setNextChallenge }}
 						{...{ generateChallenge }}

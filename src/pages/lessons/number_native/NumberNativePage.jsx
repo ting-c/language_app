@@ -9,6 +9,9 @@ import { number_native,	generateChallenge } from "./../../../data-store/lessons-
 
 
 const NumberNativePage = () => {
+
+	const challengeCompleteProps = { lesson_name: "NUMBER_NATIVE" };
+
 	const lessonProps = {
 		lesson: number_native,
 	};
@@ -30,6 +33,7 @@ const NumberNativePage = () => {
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer
+						{...{ challengeCompleteProps }}
 						{...challengeProps}
 						{...{ setNextChallenge }}
 						{...{ generateChallenge }}

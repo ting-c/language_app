@@ -8,6 +8,9 @@ import LessonButton from './../../../components/LessonButton/LessonButton';
 import { number_sino, generateChallenge } from './../../../data-store/lessons-challenges/number_sino';
 
 const NumberSinoPage = () => {
+
+	const challengeCompleteProps = { lesson_name: 'NUMBER_SINO' }
+
 	const lessonProps = {
 		lesson: number_sino
 	}
@@ -28,7 +31,8 @@ const NumberSinoPage = () => {
 		<div className="NumberSinoPage">
 			{ displayChallenge ? (
 				<div>
-					<ChallengeContainer 
+					<ChallengeContainer
+						{...{challengeCompleteProps}}
 						{...challengeProps}
 						{...{ setNextChallenge }}
 						{...{ generateChallenge }}

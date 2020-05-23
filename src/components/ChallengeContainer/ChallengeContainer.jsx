@@ -10,7 +10,7 @@ import UIfx from 'uifx';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
-const ChallengeContainer = ({ header, content, contentType, options, answer, optionsAndAnswerType, setNextChallenge, generateChallenge }) => {
+const ChallengeContainer = ({ challengeCompleteProps, header, content, contentType, options, answer, optionsAndAnswerType, setNextChallenge, generateChallenge }) => {
 
 	const correct = new UIfx(
 		correctSound,
@@ -34,13 +34,13 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 		if (selectedOptionId === answer.id) {
 			changeFooterMessage("Correct!");
 			setFooterColor("green");
-			if (progress < 100) correct.play();
+			if (progress < 100) {correct.play()};
 			setProgress(progress + 15);
 		} else {
 			changeFooterMessage(`Answer : ${answer[optionsAndAnswerType]}`);
 			setFooterColor("red");
 			wrong.play();
-			if (progress !== 0) {setProgress(progress - 10)};
+			if (progress >= 15) {setProgress(progress - 10)};
 		}
 		setShowFooter(true);
 	};
@@ -60,7 +60,7 @@ const ChallengeContainer = ({ header, content, contentType, options, answer, opt
 	return (
 		<div className="ChallengeContainer">
 			{ progress >= 100 ? (
-				<ChallengeCompleteContainer />
+				<ChallengeCompleteContainer {...challengeCompleteProps}/>
 				) : (
 				<div className='display-challenge'>
 					<ProgressBar animated now={progress} />
