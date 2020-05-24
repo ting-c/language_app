@@ -4,7 +4,7 @@ import SkillIcon from "../../../components/Skill-Icon/Skill-Icon";
 import { ProgressContext } from "../../../providers/progress_provider";
 
 const AlphabetSkillPage = () => {
-	const { basicConsonants, basicVowels, doubleVowels } = useContext(ProgressContext);
+	const { basicConsonants, basicVowels, doubleVowels, basicWords1, basicWords2 } = useContext(ProgressContext);
 
 	return (
 	<div className="SkillPage">
@@ -31,7 +31,13 @@ const AlphabetSkillPage = () => {
 				className="Skill-Icon"
 				title="Basic Words 1"
 				id="basic_words_1"
-				completed={doubleVowels}
+				completed={basicWords1}
+			/>
+			<SkillIcon
+				className="Skill-Icon"
+				title="Basic Words 2"
+				id="basic_words_2"
+				completed={basicWords2}
 			/>
 		</div>
 	</div>

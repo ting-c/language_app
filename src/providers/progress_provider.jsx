@@ -11,6 +11,10 @@ export const ProgressContext = createContext({
   setBasicVowels: () => {},
   doubleVowels: false,
   setDoubleVowels: () => {},
+  basicWords1: false,
+  setBasicWords1: () => {},
+  basicWords2: false,
+  setBasicWords2: () => {},
 });
 
 const ProgressProvider = ({ children }) => {
@@ -21,6 +25,7 @@ const ProgressProvider = ({ children }) => {
     localStorage.setItem('localBasicVowels', JSON.stringify(basicVowels));
     localStorage.setItem('localDoubleVowels', JSON.stringify(doubleVowels));
     localStorage.setItem("localDoubleVowels", JSON.stringify(basicWords1));
+    localStorage.setItem("localDoubleVowels", JSON.stringify(basicWords2));
     }, 
   );
   const [numberSino, setNumberSino] = useState(
@@ -41,6 +46,9 @@ const ProgressProvider = ({ children }) => {
   const [basicWords1, setBasicWords1] = useState(
 		JSON.parse(localStorage.getItem("localDoubleVowels")) || false
 	);
+  const [basicWords2, setBasicWords2] = useState(
+		JSON.parse(localStorage.getItem("localDoubleVowels")) || false
+	);
   
   const toggleNumberSino = (val) => setNumberSino(val);
   const toggleNumberNative = (val) => setNumberNative(val);
@@ -48,6 +56,7 @@ const ProgressProvider = ({ children }) => {
   const toggleBasicVowels = (val) => setBasicVowels(val);
   const toggleDoubleVowels = (val) => setDoubleVowels(val);
   const toggleBasicWords1 = (val) => setBasicWords1(val);
+  const toggleBasicWords2 = (val) => setBasicWords2(val);
 
   const resetProgress = () => {
     setNumberSino(false);
@@ -56,10 +65,21 @@ const ProgressProvider = ({ children }) => {
     setBasicVowels(false);
     setDoubleVowels(false);
     setBasicWords1(false);
+    setBasicWords2(false);
   }
 
-  const number = (numberSino && numberNative) || false;
-  const alphabet = (basicConsonants && basicVowels && doubleVowels) || false
+  const number = ( 
+    numberSino && 
+    numberNative
+  ) || false;
+
+  const alphabet = (
+    basicConsonants && 
+    basicVowels && 
+    doubleVowels && 
+    basicWords1 &&
+    basicWords2
+  ) || false
 
   return (
     <ProgressContext.Provider
@@ -77,6 +97,7 @@ const ProgressProvider = ({ children }) => {
         toggleBasicVowels,
         toggleDoubleVowels,
         toggleBasicWords1,
+        toggleBasicWords2,
         resetProgress
       }}
     >

@@ -9,89 +9,102 @@ import { number_sino, generateNumberSinoChallenge } from "../../data-store/lesso
 import { number_native, generateNumberNativeChallenge } from "../../data-store/lessons-challenges/number_native";
 import { basic_consonants, generateBasicConsonantsChallenge } from "../../data-store/lessons-challenges/basic_consonants";
 import { basic_vowels, generateBasicVowelsChallenge } from "../../data-store/lessons-challenges/basic_vowels";
-import { basic_words_1, generateBasicWords1Challenge } from "../../data-store/lessons-challenges/basic_words_1";
 import { double_vowels, generateDoubleVowelsChallenge } from "../../data-store/lessons-challenges/double_vowels";
+import { basic_words_1, generateBasicWords1Challenge } from "../../data-store/lessons-challenges/basic_words_1";
+import { basic_words_2, generateBasicWords2Challenge } from "../../data-store/lessons-challenges/basic_words_2";
 
-const LessonPage = (props) => {
+const LessonPage = ({ match }) => {
+  const { skill_id } = match.params
   let lessonProps, cardProps, challengeGenerator, challengeCompleteProps;
-  switch (props.match.params.skill_id) {
-    case 'number_sino':
-      lessonProps = {
-        lesson: number_sino,
-      };
-      cardProps = {
-        top: "numeral",
-        middle: "korean_char",
-        bottom: "romanization",
-      };
-  
-      challengeGenerator =  generateNumberSinoChallenge ;
-      challengeCompleteProps = { lesson_name: "NUMBER_SINO" };
-      break
+  switch (skill_id) {
+		case "number_sino":
+			lessonProps = {
+				lesson: number_sino,
+			};
+			cardProps = {
+				top: "numeral",
+				middle: "korean_char",
+				bottom: "romanization",
+			};
 
-    case 'number_native':
-      lessonProps = {
-        lesson: number_native,
-      };
-      cardProps = {
-        top: "numeral",
-        middle: "korean_char",
-        bottom: "romanization",
-      };
-      challengeGenerator = generateNumberNativeChallenge ;
-	    challengeCompleteProps = { lesson_name: "NUMBER_NATIVE" };
-      break
-    case 'basic_consonants':
-      lessonProps = {
-        lesson: basic_consonants,
-      };
-      cardProps = {
-        top: null,
-        middle: "korean_char",
-        bottom: "romanization",
-      };
-      challengeGenerator = generateBasicConsonantsChallenge ;
-	    challengeCompleteProps = { lesson_name: "BASIC_CONSONANTS" };
-      break
-    case 'basic_vowels':
-      lessonProps = {
-        lesson: basic_vowels,
-      };
-      cardProps = {
-        top: null,
-        middle: "korean_char",
-        bottom: "romanization",
-      };
-      challengeGenerator = generateBasicVowelsChallenge ;
-	    challengeCompleteProps = { lesson_name: "BASIC_VOWELS" };
-      break
-    case 'basic_words_1':
-      lessonProps = {
-        lesson: basic_words_1,
-      };
-      cardProps = {
-        top: null,
-        middle: "korean_char",
-        bottom: "romanization"
-      };
-      challengeGenerator = generateBasicWords1Challenge ;
-	    challengeCompleteProps = { lesson_name: "BASIC_WORDS_1" };
-      break
-    case 'double_vowels':
-      lessonProps = {
-        lesson: double_vowels,
-      };
-      cardProps = {
-        top: null,
-        middle: "korean_char",
-        bottom: "romanization"
-      };
-      challengeGenerator = generateDoubleVowelsChallenge ;
-	    challengeCompleteProps = { lesson_name: "DOUBLE_VOWELS" };
-      break
+			challengeGenerator = generateNumberSinoChallenge;
+			challengeCompleteProps = { skill_id };
+			break;
 
-    default:
-  }
+		case "number_native":
+			lessonProps = {
+				lesson: number_native,
+			};
+			cardProps = {
+				top: "numeral",
+				middle: "korean_char",
+				bottom: "romanization",
+			};
+			challengeGenerator = generateNumberNativeChallenge;
+			challengeCompleteProps = { skill_id };
+			break;
+		case "basic_consonants":
+			lessonProps = {
+				lesson: basic_consonants,
+			};
+			cardProps = {
+				top: null,
+				middle: "korean_char",
+				bottom: "romanization",
+			};
+			challengeGenerator = generateBasicConsonantsChallenge;
+			challengeCompleteProps = { skill_id };
+			break;
+		case "basic_vowels":
+			lessonProps = {
+				lesson: basic_vowels,
+			};
+			cardProps = {
+				top: null,
+				middle: "korean_char",
+				bottom: "romanization",
+			};
+			challengeGenerator = generateBasicVowelsChallenge;
+			challengeCompleteProps = { skill_id };
+			break;
+		case "double_vowels":
+			lessonProps = {
+				lesson: double_vowels,
+			};
+			cardProps = {
+				top: null,
+				middle: "korean_char",
+				bottom: "romanization",
+			};
+			challengeGenerator = generateDoubleVowelsChallenge;
+			challengeCompleteProps = { skill_id };
+			break;
+		case "basic_words_1":
+			lessonProps = {
+				lesson: basic_words_1,
+			};
+			cardProps = {
+				top: null,
+				middle: "korean_char",
+				bottom: "romanization",
+			};
+			challengeGenerator = generateBasicWords1Challenge;
+			challengeCompleteProps = { skill_id };
+			break;
+		case "basic_words_2":
+			lessonProps = {
+				lesson: basic_words_2,
+			};
+			cardProps = {
+				top: null,
+				middle: "korean_char",
+				bottom: "romanization",
+			};
+			challengeGenerator = generateBasicWords2Challenge;
+			challengeCompleteProps = { skill_id };
+			break;
+		default:
+	}
 
 	const [displayChallenge, setChallenge] = useState(false);
 	const [challengeProps, setNextChallenge] = useState(challengeGenerator);

@@ -6,7 +6,7 @@ import UIfx from "uifx";
 import challenge_complete_image from '../../img/challenge_complete.png';
 import { ProgressContext } from '../../providers/progress_provider';
 
-const ChallengeCompleteContainer = ({lesson_name}) => {
+const ChallengeCompleteContainer = ({skill_id}) => {
 	const {
 		toggleNumberSino,
 		toggleNumberNative,
@@ -18,23 +18,23 @@ const ChallengeCompleteContainer = ({lesson_name}) => {
 
 	useEffect( () => {
 		challenge_completed.play();
-		switch (lesson_name) {
-			case 'NUMBER_SINO':
+		switch (skill_id) {
+			case 'number_sino':
 				toggleNumberSino(true);
 				break
-			case 'NUMBER_NATIVE':
+			case 'number_native':
 				toggleNumberNative(true);
 				break
-			case 'BASIC_CONSONANTS':
+			case 'basic_consonants':
 				toggleBasicConsonants(true);
 				break
-			case 'BASIC_VOWELS':
+			case 'basic_vowels':
 				toggleBasicVowels(true);
 				break
-			case 'DOUBLE_VOWELS':
+			case 'double_vowels':
 				toggleDoubleVowels(true);
 				break
-			case 'BASIC_WORDS_1':
+			case 'basic_words_1':
 				toggleBasicWords1(true);
 				break
 			default:
