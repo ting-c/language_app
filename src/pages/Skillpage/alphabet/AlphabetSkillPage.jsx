@@ -12,25 +12,25 @@ const AlphabetSkillPage = () => {
 			<SkillIcon
 				className="Skill-Icon"
 				title="Basic Consonants"
-				link="alphabet/basic_consonants"
+				id="basic_consonants"
 				completed={basicConsonants}
 			/>
 			<SkillIcon
 				className="Skill-Icon"
 				title="Basic Vowels"
-				link="alphabet/basic_vowels"
+				id="basic_vowels"
 				completed={basicVowels}
 			/>
 			<SkillIcon
 				className="Skill-Icon"
 				title="Double Vowels"
-				link="alphabet/double_vowels"
+				id="double_vowels"
 				completed={doubleVowels}
 			/>
 			<SkillIcon
 				className="Skill-Icon"
 				title="Basic Words 1"
-				link="alphabet/basic_words_1"
+				id="basic_words_1"
 				completed={doubleVowels}
 			/>
 		</div>

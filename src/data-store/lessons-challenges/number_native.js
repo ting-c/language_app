@@ -80,7 +80,7 @@ const generateRandomTypes = () => {
 	return { contentType, optionsAndAnswerType };
 };
 
-export const generateChallenge = () => {
+export const generateNumberNativeChallenge = () => {
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = number_native;

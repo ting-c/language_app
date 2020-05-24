@@ -3,7 +3,7 @@ export const basic_vowels = {
 
   introduction: `There are ten basic vowels in Hangul.`,
 
-  vowels_list: [
+  vowel_list: [
     {
       id: 1,
       korean_char: "ㅏ",
@@ -72,11 +72,11 @@ const generateRandomTypes = () => {
 	return { contentType, optionsAndAnswerType };
 };
 
-export const generateChallenge = () => {
+export const generateBasicVowelsChallenge = () => {
   const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = basic_vowels;
-	const list_name = "vowels_list";
+	const list_name = "vowel_list";
 
 	const convertTypeToText = {
 		korean_char: "korean character",

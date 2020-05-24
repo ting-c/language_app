@@ -13,7 +13,6 @@ const NumberSkillPage = () => {
 				className="Skill-Icon"
 				title="Number (Sino)"
 				id="number_sino"
-				link='/number/number_sino'
 				completed={numberSino}
 			/>
 
@@ -21,7 +20,6 @@ const NumberSkillPage = () => {
 				className="Skill-Icon"
 				title="Number (Native)"
 				id="number_native"
-				link='/number/number_native'
 				completed={numberNative}
 			/>
 		</div>

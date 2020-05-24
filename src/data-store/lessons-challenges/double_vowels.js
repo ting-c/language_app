@@ -3,7 +3,7 @@ export const double_vowels = {
 
   introduction: `We can use a combination of the 10 basic vowels ㅏ(a),ㅑ(ya),ㅓ(eo),ㅕ(yeo), ㅗ(o), ㅛ(yo), ㅜ(u), ㅠ(yu), ㅡ(eu), ㅣ(e) to compose the 11 new double vowels.`,
 
-  vowels_list: [
+  vowel_list: [
     {
       id: 1,
       korean_char: "ㅐ",
@@ -77,11 +77,11 @@ const generateRandomTypes = () => {
 	return { contentType, optionsAndAnswerType };
 };
 
-export const generateChallenge = () => {
+export const generateDoubleVowelsChallenge = () => {
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = double_vowels;
-	const list_name = "vowels_list";
+	const list_name = "vowel_list";
 
 	const convertTypeToText = {
 		korean_char: "korean character",

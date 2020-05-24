@@ -108,7 +108,7 @@ const generateRandomTypes = () => {
 	return { contentType, optionsAndAnswerType };
 };
 
-export const generateChallenge = () => {
+export const generateBasicConsonantsChallenge = () => {
   const { contentType, optionsAndAnswerType } = generateRandomTypes();
   
   const lesson_name = basic_consonants;

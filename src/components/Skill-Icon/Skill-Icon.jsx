@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import skillIconImageGrey from "./../../img/skill-icon-grey.png";
 import skillIconImage from "./../../img/skill-icon.png";
 
-const SkillIcon = ({ title, link, completed }) => {
+const SkillIcon = ({ title, id, completed }) => {
 	const iconImage = completed ? skillIconImage : skillIconImageGrey
 
 	return (
 	<div className="SkillIcon">
-		<Link to={link}>
+		<Link to={`/lesson/${id}`}>
 			<img
 				className="skill-icon-image"
 				src={iconImage}

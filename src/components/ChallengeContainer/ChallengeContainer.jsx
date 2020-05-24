@@ -10,7 +10,7 @@ import UIfx from 'uifx';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
-const ChallengeContainer = ({ challengeCompleteProps, header, content, contentType, options, answer, optionsAndAnswerType, setNextChallenge, generateChallenge }) => {
+const ChallengeContainer = ({ challengeCompleteProps, header, content, contentType, options, answer, optionsAndAnswerType, setNextChallenge, challengeGenerator }) => {
 
 	const correct = new UIfx(
 		correctSound,
@@ -54,7 +54,7 @@ const ChallengeContainer = ({ challengeCompleteProps, header, content, contentTy
 		setSelectedOptionId(null);
 		setShowFooter(false);
 		setCheckButtonColor('grey');
-		setNextChallenge(generateChallenge);
+		setNextChallenge(challengeGenerator);
 	}
 
 	return (

@@ -72,7 +72,7 @@ const generateRandomTypes = () => {
 	return { contentType, optionsAndAnswerType };
 };
 
-export const generateChallenge = () => {
+export const generateBasicWords1Challenge = () => {
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = basic_words_1;

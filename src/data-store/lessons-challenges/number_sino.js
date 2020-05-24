@@ -89,7 +89,7 @@ const generateRandomTypes = () => {
 		return { contentType, optionsAndAnswerType };		
 	};
 
-export const generateChallenge = () => {	
+export const generateNumberSinoChallenge = () => {	
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = number_sino;
