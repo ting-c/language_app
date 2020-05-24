@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./NumberSinoPage.styles.scss";
+import '../lesson-page.styles.scss';
 import LessonContainer from "../../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../../components/ChallengeContainer/ChallengeContainer";
 import ChallengeButtonContainer from './../../../components/ChallengeButtonContainer/ChallengeButtonContainer';
@@ -28,7 +28,7 @@ const NumberSinoPage = () => {
 	const [challengeProps, setNextChallenge] = useState(generateChallenge());
 
 	return (
-		<div className="NumberSinoPage">
+		<div className="lesson-page">
 			{ displayChallenge ? (
 				<div>
 					<ChallengeContainer

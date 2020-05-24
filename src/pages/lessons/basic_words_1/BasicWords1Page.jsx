@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./BasicWords1Page.scss";
+import "../lesson-page.styles.scss";
 import LessonContainer from "../../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../../components/ChallengeContainer/ChallengeContainer";
 import ChallengeButtonContainer from "../../../components/ChallengeButtonContainer/ChallengeButtonContainer";
@@ -30,7 +30,7 @@ const BasicWords1 = () => {
 	const [challengeProps, setNextChallenge] = useState(generateChallenge());
 
 	return (
-		<div className="BasicWords1Page">
+		<div className="lesson-page">
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer

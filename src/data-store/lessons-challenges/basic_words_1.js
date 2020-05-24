@@ -1,7 +1,7 @@
 export const basic_words_1 = {
   title: "Basic Words (ㄱ) ",
 
-  introduction: `Now we will use the consonants and vowels in previous lesson to form words. Here we will focus on words that starts with ㄱ (g). For example: ㅏ(a), ㅑ(eo), ㅕ(yeo) combined with ㄱ(g) will make 가 = ga, 	거 = geo,  겨 = gyeo. `,
+  introduction: `Now we will use the consonants and vowels in previous lesson to form words. Here we will focus on words that starts with ㄱ (g). For example: ㅏ(a), ㅓ(eo), ㅕ(yeo) combined with ㄱ(g) will make 가 = ga, 거 = geo, 겨 = gyeo. `,
 
   word_list: [
     {

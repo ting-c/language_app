@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./DoubleVowelsPage.styles.scss";
+import "../lesson-page.styles.scss";
 import LessonContainer from "../../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../../components/ChallengeContainer/ChallengeContainer";
 import ChallengeButtonContainer from "../../../components/ChallengeButtonContainer/ChallengeButtonContainer";
@@ -29,7 +29,7 @@ const DoubleVowelsPage = () => {
 	const [challengeProps, setNextChallenge] = useState(generateChallenge());
 
 	return (
-		<div className="DoubleVowelsPage">
+		<div className="lesson-page">
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer
