@@ -13,20 +13,18 @@ import { basic_words_1, generateBasicWords1Challenge } from "../../data-store/le
 import { double_vowels, generateDoubleVowelsChallenge } from "../../data-store/lessons-challenges/double_vowels";
 
 const LessonPage = (props) => {
-  let lessonProps, cardGroupProps, challengeGenerator, challengeCompleteProps;
+  let lessonProps, cardProps, challengeGenerator, challengeCompleteProps;
   switch (props.match.params.skill_id) {
     case 'number_sino':
       lessonProps = {
         lesson: number_sino,
       };
-      cardGroupProps = {
-        listName: "number_list",
-        cardProps: {
-          top: "numeral",
-          middle: "korean_char",
-          bottom: "romanization",
-        },
+      cardProps = {
+        top: "numeral",
+        middle: "korean_char",
+        bottom: "romanization",
       };
+  
       challengeGenerator =  generateNumberSinoChallenge ;
       challengeCompleteProps = { lesson_name: "NUMBER_SINO" };
       break
@@ -35,13 +33,10 @@ const LessonPage = (props) => {
       lessonProps = {
         lesson: number_native,
       };
-      cardGroupProps = {
-        listName: "number_list",
-        cardProps: {
-          top: "numeral",
-          middle: "korean_char",
-          bottom: "romanization",
-        },
+      cardProps = {
+        top: "numeral",
+        middle: "korean_char",
+        bottom: "romanization",
       };
       challengeGenerator = generateNumberNativeChallenge ;
 	    challengeCompleteProps = { lesson_name: "NUMBER_NATIVE" };
@@ -50,13 +45,10 @@ const LessonPage = (props) => {
       lessonProps = {
         lesson: basic_consonants,
       };
-      cardGroupProps = {
-        listName: "consonant_list",
-        cardProps: {
-          top: null,
-          middle: "korean_char",
-          bottom: "romanization",
-        },
+      cardProps = {
+        top: null,
+        middle: "korean_char",
+        bottom: "romanization",
       };
       challengeGenerator = generateBasicConsonantsChallenge ;
 	    challengeCompleteProps = { lesson_name: "BASIC_CONSONANTS" };
@@ -65,13 +57,10 @@ const LessonPage = (props) => {
       lessonProps = {
         lesson: basic_vowels,
       };
-      cardGroupProps = {
-        listName: "vowel_list",
-        cardProps: {
-          top: null,
-          middle: "korean_char",
-          bottom: "romanization",
-        },
+      cardProps = {
+        top: null,
+        middle: "korean_char",
+        bottom: "romanization",
       };
       challengeGenerator = generateBasicVowelsChallenge ;
 	    challengeCompleteProps = { lesson_name: "BASIC_VOWELS" };
@@ -80,13 +69,10 @@ const LessonPage = (props) => {
       lessonProps = {
         lesson: basic_words_1,
       };
-      cardGroupProps = {
-        listName: "word_list",
-        cardProps: {
-          top: null,
-          middle: "korean_char",
-          bottom: "romanization",
-        },
+      cardProps = {
+        top: null,
+        middle: "korean_char",
+        bottom: "romanization"
       };
       challengeGenerator = generateBasicWords1Challenge ;
 	    challengeCompleteProps = { lesson_name: "BASIC_WORDS_1" };
@@ -95,13 +81,10 @@ const LessonPage = (props) => {
       lessonProps = {
         lesson: double_vowels,
       };
-      cardGroupProps = {
-        listName: "vowel_list",
-        cardProps: {
-          top: null,
-          middle: "korean_char",
-          bottom: "romanization",
-        },
+      cardProps = {
+        top: null,
+        middle: "korean_char",
+        bottom: "romanization"
       };
       challengeGenerator = generateDoubleVowelsChallenge ;
 	    challengeCompleteProps = { lesson_name: "DOUBLE_VOWELS" };
@@ -127,7 +110,7 @@ const LessonPage = (props) => {
 				</div>
 			) : (
 				<div>
-					<LessonContainer {...lessonProps} {...cardGroupProps} />
+					<LessonContainer {...lessonProps} {...{cardProps}} />
 					<ChallengeButtonContainer {...{ setChallenge }} />
 					<OverviewButtonContainer />
 				</div>

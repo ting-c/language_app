@@ -5,7 +5,7 @@ import CardGroup from './../CardGroup/CardGroup';
 const LessonContainer = ({lesson, listName, cardProps}) => {
 
   const introduction = lesson.introduction;
-  const list = lesson[listName]
+  const list = lesson.list
 
   return (    
     <div className='LessonContainer'>

@@ -3,7 +3,7 @@ export const basic_vowels = {
 
   introduction: `There are ten basic vowels in Hangul.`,
 
-  vowel_list: [
+  list: [
     {
       id: 1,
       korean_char: "ㅏ",
@@ -76,7 +76,6 @@ export const generateBasicVowelsChallenge = () => {
   const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = basic_vowels;
-	const list_name = "vowel_list";
 
 	const convertTypeToText = {
 		korean_char: "korean character",
@@ -85,7 +84,7 @@ export const generateBasicVowelsChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const list = lesson_name[list_name];
+	const list = lesson_name.list;
 	const random_option = list[Math.floor(Math.random() * list.length)];
 	const incorrect_random_options = list.filter(
 		option => option.id !== random_option.id

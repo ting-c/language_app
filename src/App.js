@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage/HomePage';
 import OverviewPage from './pages/OverviewPage/OverviewPage';
 import AlphabetSkillPage from './pages/Skillpage/alphabet/AlphabetSkillPage';
 import NumberSkillPage from './pages/Skillpage/number/NumberSkillPage';
-import LessonPage from './pages/lessons/LessonPage';
+import LessonPage from './pages/LessonPage/LessonPage';
 
 class App extends Component {
 

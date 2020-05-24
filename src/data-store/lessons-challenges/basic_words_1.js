@@ -3,7 +3,7 @@ export const basic_words_1 = {
 
   introduction: `Now we will use the consonants and vowels in previous lesson to form words. Here we will focus on words that starts with ㄱ (g). For example: ㅏ(a), ㅓ(eo), ㅕ(yeo) combined with ㄱ(g) will make 가 = ga, 거 = geo, 겨 = gyeo. `,
 
-  word_list: [
+  list: [
     {
       id: 1,
       korean_char: "가",
@@ -76,7 +76,6 @@ export const generateBasicWords1Challenge = () => {
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = basic_words_1;
-	const list_name = "word_list";
 
 	const convertTypeToText = {
 		korean_char: "korean character",
@@ -86,7 +85,7 @@ export const generateBasicWords1Challenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const list = lesson_name[list_name];
+	const list = lesson_name.list;
 	const random_option = list[Math.floor(Math.random() * list.length)];
 	const incorrect_random_options = list.filter(
 		(option) => option.id !== random_option.id

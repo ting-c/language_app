@@ -1,7 +1,7 @@
 export const number_native = {
 	introduction: `The Native Korean number system (hana, dool, set, etc) is for combining a number with an object-specific counter. These are the numbers you would use when counting a specific number of people, objects, or things.`,
 
-	number_list: [
+	list: [
 		{
 			id: 1,
 			numeral: 1,
@@ -84,7 +84,6 @@ export const generateNumberNativeChallenge = () => {
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = number_native;
-	const list_name = "number_list";
 
 	const convertTypeToText = {
 		korean_char: "korean character",
@@ -94,7 +93,7 @@ export const generateNumberNativeChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const list = lesson_name[list_name];
+	const list = lesson_name.list;
 	const random_option = list[Math.floor(Math.random() * list.length)];
 	const incorrect_random_options = list.filter(
 		option => option.id !== random_option.id

@@ -1,7 +1,7 @@
 export const number_sino = {
 	introduction: `Did you know that the Korean language has two regularly used generates of numerals, a native Korean system and Sino-Korean system ? The “Sino number system” (eel, ee, sam, etc) is used for talking about sums of money, telephone numbers, etc.`,
 
-	number_list: [
+	list: [
 		{
 			id: 1,
 			numeral: 1,
@@ -93,7 +93,6 @@ export const generateNumberSinoChallenge = () => {
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = number_sino;
-	const list_name = "number_list";	
 
 	const convertTypeToText = {
 		korean_char: 'korean character',
@@ -103,7 +102,7 @@ export const generateNumberSinoChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const list = lesson_name[list_name];
+	const list = lesson_name.list;
 	const random_option = list[Math.floor(Math.random() * list.length)];
 	const incorrect_random_options = list.filter(
 		option => option.id !== random_option.id

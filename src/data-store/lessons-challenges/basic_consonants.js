@@ -5,7 +5,7 @@ export const basic_consonants = {
 
 However the pronunciation and romanization of Korean consonant is determined by whether the consonant appears at the beginning or end of the syllable. For now, we will focus on the pronunciation that each consonant has at the beginning of a syllable.`,
 
-  consonant_list: [
+  list: [
     {
       id: 1,
       korean_char: "ㄱ",
@@ -112,7 +112,6 @@ export const generateBasicConsonantsChallenge = () => {
   const { contentType, optionsAndAnswerType } = generateRandomTypes();
   
   const lesson_name = basic_consonants;
-  const list_name = 'consonant_list';
 
 	const convertTypeToText = {
 		korean_char: "korean character",
@@ -122,7 +121,7 @@ export const generateBasicConsonantsChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const list = lesson_name[list_name];
+	const list = lesson_name.list;
 	const random_option = list[Math.floor(Math.random() * list.length)];
 	const incorrect_random_options = list.filter(
 		option => option.id !== random_option.id

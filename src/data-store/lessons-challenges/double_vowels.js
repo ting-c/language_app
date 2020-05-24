@@ -3,7 +3,7 @@ export const double_vowels = {
 
   introduction: `We can use a combination of the 10 basic vowels ㅏ(a),ㅑ(ya),ㅓ(eo),ㅕ(yeo), ㅗ(o), ㅛ(yo), ㅜ(u), ㅠ(yu), ㅡ(eu), ㅣ(e) to compose the 11 new double vowels.`,
 
-  vowel_list: [
+  list: [
     {
       id: 1,
       korean_char: "ㅐ",
@@ -81,7 +81,6 @@ export const generateDoubleVowelsChallenge = () => {
 	const { contentType, optionsAndAnswerType } = generateRandomTypes();
 
 	const lesson_name = double_vowels;
-	const list_name = "vowel_list";
 
 	const convertTypeToText = {
 		korean_char: "korean character",
@@ -90,7 +89,7 @@ export const generateDoubleVowelsChallenge = () => {
 
 	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
 
-	const list = lesson_name[list_name];
+	const list = lesson_name.list;
 	const random_option = list[Math.floor(Math.random() * list.length)];
 	const incorrect_random_options = list.filter(
 		option => option.id !== random_option.id
