@@ -12,21 +12,23 @@
 
     .trophy-image{
       height: 180px;
-      -webkit-animation: slideIn 2s forwards;
-      -moz-animation: slideIn 2s forwards;
-      animation: slideIn 2s forwards;
+      -webkit-animation: slideInFromLeft 2s forwards;
+      -moz-animation: slideInFromLeft 2s forwards;
+      animation: slideInFromLeft 2s forwards;
     }
     .trophy-text {
       font-size: 25px;
       font-weight: 600;
       color: rgb(70, 64, 87);
+      -webkit-animation: fadeIn 3s forwards;
+      -moz-animation: fadeIn 3s forwards;
       animation: fadeIn 3s forwards;
     }
   }
 
 }
 
-@-webkit-keyframes slideIn {
+@-webkit-keyframes slideInFromLeft {
   0% {
     transform: translateX(-900px);
   }
@@ -34,7 +36,7 @@
     transform: translateX(0);
   }
 }
-@-moz-keyframes slideIn {
+@-moz-keyframes slideInFromLeft {
   0% {
     transform: translateX(-900px);
   }
@@ -42,7 +44,7 @@
     transform: translateX(0);
   }
 }
-@keyframes slideIn {
+@keyframes slideInFromLeft {
   0% {
     transform: translateX(-900px);
   }

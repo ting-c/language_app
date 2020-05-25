@@ -1,11 +1,12 @@
-.ChallengeButtonContainer {
-  .challenge-button {
-    margin: 20px 5px;
+.challenge-button {
+  button {
+    margin: 0.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    height: 40px;
-    width: 200px;
+    width: 13rem;
+    height: 2.2rem;
+    background-color:rgb(79, 111, 255);
     border: none;
-    background-color: rgb(94, 118, 255);
     border-radius: 4px;
     color: white;
     outline: none;

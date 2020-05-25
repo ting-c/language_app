@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import './ChallengeCompleteContainer.styles.scss';
-import OverviewButtonContainer from '../OverviewButtonContainer/OverviewButtonContainer';
+import OverviewButton from '../OverviewButton/OverviewButton';
 import challenge_completed_sound from './../../data-store/audio/challenge-completed.mp3';
 import UIfx from "uifx";
 import challenge_complete_image from '../../img/challenge_complete.png';
@@ -26,7 +26,7 @@ const ChallengeCompleteContainer = ({skill_id}) => {
 				Challenge Complete!
 			</div>
 		</div>
-		<OverviewButtonContainer />
+		<OverviewButton />
 	</div>
 )};
 

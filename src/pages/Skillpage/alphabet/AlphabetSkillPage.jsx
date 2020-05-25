@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import "./AlphabetSkillPage.styles.scss";
 import SkillIcon from "../../../components/Skill-Icon/Skill-Icon";
+import BackButton from '../../../components/BackButton/BackButton';
 import { ProgressContext } from "../../../providers/progress_provider";
 
-const AlphabetSkillPage = () => {
+const AlphabetSkillPage = ({history}) => {
 	const {
 		progressState: {
 			basic_consonants,
@@ -48,6 +49,7 @@ const AlphabetSkillPage = () => {
 				completed={basic_words_2}
 			/>
 		</div>
+		<BackButton {...{history}} />
 	</div>
 )};
 

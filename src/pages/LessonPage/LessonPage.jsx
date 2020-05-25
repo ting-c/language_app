@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./LessonPage.styles.scss";
 import LessonContainer from "../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../components/ChallengeContainer/ChallengeContainer";
-import ChallengeButtonContainer from "../../components/ChallengeButtonContainer/ChallengeButtonContainer";
-import OverviewButtonContainer from "../../components/OverviewButtonContainer/OverviewButtonContainer";
+import ChallengeButton from "../../components/ChallengeButton/ChallengeButton";
 import LessonButton from "../../components/LessonButton/LessonButton";
+import BackButton from '../../components/BackButton/BackButton';
 import { number_sino, generateNumberSinoChallenge } from "../../data-store/lessons-challenges/number_sino";
 import { number_native, generateNumberNativeChallenge } from "../../data-store/lessons-challenges/number_native";
 import { basic_consonants, generateBasicConsonantsChallenge } from "../../data-store/lessons-challenges/basic_consonants";
@@ -13,7 +13,7 @@ import { double_vowels, generateDoubleVowelsChallenge } from "../../data-store/l
 import { basic_words_1, generateBasicWords1Challenge } from "../../data-store/lessons-challenges/basic_words_1";
 import { basic_words_2, generateBasicWords2Challenge } from "../../data-store/lessons-challenges/basic_words_2";
 
-const LessonPage = ({ match }) => {
+const LessonPage = ({ match, history }) => {
   const { skill_id } = match.params
   let lessonProps, cardProps, challengeGenerator, challengeCompleteProps;
   switch (skill_id) {
@@ -124,8 +124,8 @@ const LessonPage = ({ match }) => {
 			) : (
 				<div>
 					<LessonContainer {...lessonProps} {...{cardProps}} />
-					<ChallengeButtonContainer {...{ setChallenge }} />
-					<OverviewButtonContainer />
+					<ChallengeButton {...{ setChallenge }} />
+					<BackButton {...{history}} />
 				</div>
 			)}
 		</div>

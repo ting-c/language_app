@@ -1,9 +1,6 @@
 import React, { useState, createContext, useEffect } from 'react';
 
-export const ProgressContext = createContext({
-  progressState: {},
-  setProgressState: () => {}
-});
+export const ProgressContext = createContext();
 
 const ProgressProvider = ({ children }) => {
 

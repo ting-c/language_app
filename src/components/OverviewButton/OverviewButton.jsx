@@ -1,9 +1,9 @@
 import React from 'react';
-import './OverviewButtonContainer.styles.scss';
+import './OverviewButton.styles.scss';
 import { Link } from 'react-router-dom';
 
 const OverviewButtonContainer = () => (
-	<div className="OverviewButtonContainer">
+	<div className="overview-button">
 		<Link to="/overview">
 			<button className="overview-button">Overview</button>
 		</Link>

@@ -1,9 +1,9 @@
 import React from 'react';
-import './ChallengeButtonContainer.styles.scss';
+import './ChallengeButton.styles.scss';
 
 const ChallengeButtonContainer = ({setChallenge}) => (
-	<div className="ChallengeButtonContainer">
-		<button className="challenge-button" onClick={() => setChallenge(true)}>
+	<div className="challenge-button">
+		<button onClick={() => setChallenge(true)}>
 			I'm ready for the challenge
 		</button>
 	</div>

@@ -1,7 +1,8 @@
 .SkillPage {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
+  align-items: center;
 
   .skill-map {
     margin: 5px;
