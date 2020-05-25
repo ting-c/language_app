@@ -3,15 +3,16 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: 1.2rem 0;
+  overflow: hidden;
   
   .card {
     width: 90px;
     margin: 5px;
     padding: 5px;
     box-shadow: 0 3px 8px rgb(196, 196, 196);
-    -webkit-animation: slideInFromLeft 1s forwards;
-    -moz-animation: slideInFromLeft 1s forwards;
-    animation: slideInFromLeft 1s forwards;
+    -webkit-animation: slideInFromRight 0.7s forwards;
+    -moz-animation: slideInFromRight 0.7s forwards;
+    animation: slideInFromRight 0.7s forwards;
     -webkit-animation-timing-function: cubic-bezier(.17,.43,.39,.98);
     -moz-animation-timing-function: cubic-bezier(.17,.43,.39,.98);
     animation-timing-function: cubic-bezier(.17,.43,.39,.98);

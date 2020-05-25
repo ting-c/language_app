@@ -12,6 +12,9 @@ import { basic_vowels, generateBasicVowelsChallenge } from "../../data-store/les
 import { double_vowels, generateDoubleVowelsChallenge } from "../../data-store/lessons-challenges/double_vowels";
 import { basic_words_1, generateBasicWords1Challenge } from "../../data-store/lessons-challenges/basic_words_1";
 import { basic_words_2, generateBasicWords2Challenge } from "../../data-store/lessons-challenges/basic_words_2";
+import { basic_words_3, generateBasicWords3Challenge } from "../../data-store/lessons-challenges/basic_words_3";
+import { basic_words_4, generateBasicWords4Challenge } from "../../data-store/lessons-challenges/basic_words_4";
+import { basic_words_5, generateBasicWords5Challenge } from "../../data-store/lessons-challenges/basic_words_5";
 
 const LessonPage = ({ match, history }) => {
   const { skill_id } = match.params
@@ -103,10 +106,46 @@ const LessonPage = ({ match, history }) => {
 			challengeGenerator = generateBasicWords2Challenge;
 			challengeCompleteProps = { skill_id };
 			break;
+		case "basic_words_3":
+			lessonProps = {
+				lesson: basic_words_3,
+			};
+			cardProps = {
+				top: null,
+				middle: "korean_char",
+				bottom: "romanization",
+			};
+			challengeGenerator = generateBasicWords3Challenge;
+			challengeCompleteProps = { skill_id };
+			break;
+		case "basic_words_4":
+			lessonProps = {
+				lesson: basic_words_4,
+			};
+			cardProps = {
+				top: null,
+				middle: "korean_char",
+				bottom: "romanization",
+			};
+			challengeGenerator = generateBasicWords4Challenge;
+			challengeCompleteProps = { skill_id };
+			break;
+		case "basic_words_5":
+			lessonProps = {
+				lesson: basic_words_5,
+			};
+			cardProps = {
+				top: null,
+				middle: "korean_char",
+				bottom: "romanization",
+			};
+			challengeGenerator = generateBasicWords5Challenge;
+			challengeCompleteProps = { skill_id };
+			break;
 		default:
 	}
 
-	const [displayChallenge, setChallenge] = useState(false);
+	const [displayChallenge, toggleDisplayChallenge] = useState(false);
 	const [challengeProps, setNextChallenge] = useState(challengeGenerator);
 
 	return (
@@ -119,13 +158,13 @@ const LessonPage = ({ match, history }) => {
 						{...{ setNextChallenge }}
 						{...{ challengeGenerator }}
 					/>
-					<LessonButton {...{ setChallenge }} />
+					<LessonButton {...{ toggleDisplayChallenge }} />
 				</div>
 			) : (
 				<div>
-					<LessonContainer {...lessonProps} {...{cardProps}} />
-					<ChallengeButton {...{ setChallenge }} />
-					<BackButton {...{history}} />
+					<LessonContainer {...lessonProps} {...{ cardProps }} />
+					<ChallengeButton {...{ toggleDisplayChallenge }} />
+					<BackButton {...{ history }} />
 				</div>
 			)}
 		</div>

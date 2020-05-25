@@ -4,7 +4,7 @@ import SkillIcon from "../../../components/Skill-Icon/Skill-Icon";
 import BackButton from '../../../components/BackButton/BackButton';
 import { ProgressContext } from "../../../providers/progress_provider";
 
-const AlphabetSkillPage = ({history}) => {
+const AlphabetSkillPage = ({ history }) => {
 	const {
 		progressState: {
 			basic_consonants,
@@ -12,6 +12,9 @@ const AlphabetSkillPage = ({history}) => {
 			double_vowels,
 			basic_words_1,
 			basic_words_2,
+			basic_words_3,
+			basic_words_4,
+			basic_words_5,
 		},
 	} = useContext(ProgressContext);
 
@@ -48,8 +51,26 @@ const AlphabetSkillPage = ({history}) => {
 				id="basic_words_2"
 				completed={basic_words_2}
 			/>
+			<SkillIcon
+				className="Skill-Icon"
+				title="Basic Words 3"
+				id="basic_words_3"
+				completed={basic_words_3}
+			/>
+			<SkillIcon
+				className="Skill-Icon"
+				title="Basic Words 4"
+				id="basic_words_4"
+				completed={basic_words_4}
+			/>
+			<SkillIcon
+				className="Skill-Icon"
+				title="Basic Words 5"
+				id="basic_words_5"
+				completed={basic_words_5}
+			/>
 		</div>
-		<BackButton {...{history}} />
+		<BackButton {...{ history }} />
 	</div>
 )};
 

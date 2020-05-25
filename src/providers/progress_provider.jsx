@@ -12,6 +12,9 @@ const ProgressProvider = ({ children }) => {
 		double_vowels: false,
 		basic_words_1: false,
 		basic_words_2: false,
+		basic_words_3: false,
+		basic_words_4: false,
+		basic_words_5: false,
   };
 
   const existInLocalStorage = localStorage.getItem('progressState');  
@@ -20,6 +23,7 @@ const ProgressProvider = ({ children }) => {
     existInLocalStorage ? JSON.parse(existInLocalStorage) : INITIAL_STATE);
 
   useEffect(() => {
+    
     localStorage.setItem('progressState', JSON.stringify(progressState));
   });
 
@@ -43,7 +47,10 @@ const ProgressProvider = ({ children }) => {
     progressState.basic_vowels &&
     progressState.double_vowels &&
     progressState.basic_words_1 &&
-    progressState.basic_words_2 
+    progressState.basic_words_2 &&
+    progressState.basic_words_3 &&
+    progressState.basic_words_4 &&
+    progressState.basic_words_5
   );
 
   return (

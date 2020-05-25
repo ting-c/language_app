@@ -1,10 +1,12 @@
 import React from 'react';
 import './LessonButton.styles.scss';
 
-const LessonButton = ({ setChallenge }) => (
-	<button className="lesson-button" onClick={() => setChallenge(false)}>
-		Back to lesson
-	</button>
+const LessonButton = ({ toggleDisplayChallenge }) => (
+	<div className='lesson-button'> 
+		<button onClick={() => toggleDisplayChallenge()}>
+			Back to lesson
+		</button>
+	</div>
 );
 
 export default LessonButton;
