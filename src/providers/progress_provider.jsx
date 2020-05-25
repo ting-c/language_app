@@ -1,104 +1,62 @@
 import React, { useState, createContext, useEffect } from 'react';
 
 export const ProgressContext = createContext({
-  numberSino: false,
-  setNumberSino: () => {},
-  numberNative: false,
-  setNumberNative: () => {},
-  basicConsonants: false,
-  setBasicConsonants: () => {},
-  basicVowels: false,
-  setBasicVowels: () => {},
-  doubleVowels: false,
-  setDoubleVowels: () => {},
-  basicWords1: false,
-  setBasicWords1: () => {},
-  basicWords2: false,
-  setBasicWords2: () => {},
+  progressState: {},
+  setProgressState: () => {}
 });
 
 const ProgressProvider = ({ children }) => {
-  useEffect( () => {    
-    localStorage.setItem('localNumberSino', JSON.stringify(numberSino));
-    localStorage.setItem('localNumberNative', JSON.stringify(numberNative));
-    localStorage.setItem('localBasicConsonants', JSON.stringify(basicConsonants));
-    localStorage.setItem('localBasicVowels', JSON.stringify(basicVowels));
-    localStorage.setItem('localDoubleVowels', JSON.stringify(doubleVowels));
-    localStorage.setItem("localDoubleVowels", JSON.stringify(basicWords1));
-    localStorage.setItem("localDoubleVowels", JSON.stringify(basicWords2));
-    }, 
-  );
-  const [numberSino, setNumberSino] = useState(
-    JSON.parse(localStorage.getItem('localNumberSino')) || false
-  );
-  const [numberNative, setNumberNative] = useState(
-		JSON.parse(localStorage.getItem("localNumberNative")) || false
-	);
-  const [basicConsonants, setBasicConsonants] = useState(
-		JSON.parse(localStorage.getItem("localBasicConsonants")) || false
-	);
-  const [basicVowels, setBasicVowels] = useState(
-		JSON.parse(localStorage.getItem("localBasicVowels")) || false
-	);
-  const [doubleVowels, setDoubleVowels] = useState(
-		JSON.parse(localStorage.getItem("localDoubleVowels")) || false
-  );
-  const [basicWords1, setBasicWords1] = useState(
-		JSON.parse(localStorage.getItem("localDoubleVowels")) || false
-	);
-  const [basicWords2, setBasicWords2] = useState(
-		JSON.parse(localStorage.getItem("localDoubleVowels")) || false
-	);
-  
-  const toggleNumberSino = (val) => setNumberSino(val);
-  const toggleNumberNative = (val) => setNumberNative(val);
-  const toggleBasicConsonants = (val) => setBasicConsonants(val);
-  const toggleBasicVowels = (val) => setBasicVowels(val);
-  const toggleDoubleVowels = (val) => setDoubleVowels(val);
-  const toggleBasicWords1 = (val) => setBasicWords1(val);
-  const toggleBasicWords2 = (val) => setBasicWords2(val);
+
+  const INITIAL_STATE = {
+		number_sino: false,
+		number_native: false,
+		basic_consonants: false,
+		basic_vowels: false,
+		double_vowels: false,
+		basic_words_1: false,
+		basic_words_2: false,
+  };
+
+  const existInLocalStorage = localStorage.getItem('progressState');  
+
+  const [progressState, setProgressState] = useState(
+    existInLocalStorage ? JSON.parse(existInLocalStorage) : INITIAL_STATE);
+
+  useEffect(() => {
+    localStorage.setItem('progressState', JSON.stringify(progressState));
+  });
+
+  const handleSetProgressState = (lesson, val) => { 
+    if (progressState[lesson] === false) {
+      setProgressState( { ...progressState, [lesson] : val } );
+    }; 
+  };
 
   const resetProgress = () => {
-    setNumberSino(false);
-    setNumberNative(false);
-    setBasicConsonants(false);
-    setBasicVowels(false);
-    setDoubleVowels(false);
-    setBasicWords1(false);
-    setBasicWords2(false);
-  }
+    setProgressState(INITIAL_STATE);
+  };
 
-  const number = ( 
-    numberSino && 
-    numberNative
-  ) || false;
+  const allNumberCompleted = (
+    progressState.number_sino && 
+    progressState.number_native
+  );
 
-  const alphabet = (
-    basicConsonants && 
-    basicVowels && 
-    doubleVowels && 
-    basicWords1 &&
-    basicWords2
-  ) || false
+  const allAlphabetCompleted = (
+    progressState.basic_consonants &&
+    progressState.basic_vowels &&
+    progressState.double_vowels &&
+    progressState.basic_words_1 &&
+    progressState.basic_words_2 
+  );
 
   return (
     <ProgressContext.Provider
       value={{
-        number,
-        alphabet,
-        numberSino, 
-        numberNative, 
-        basicConsonants, 
-        basicVowels,
-        doubleVowels,
-        toggleNumberSino,
-        toggleNumberNative,
-        toggleBasicConsonants,
-        toggleBasicVowels,
-        toggleDoubleVowels,
-        toggleBasicWords1,
-        toggleBasicWords2,
-        resetProgress
+        resetProgress,
+        handleSetProgressState,
+        progressState,
+        allNumberCompleted,
+        allAlphabetCompleted,
       }}
     >
       {children}

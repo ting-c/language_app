@@ -8,37 +8,12 @@ import { ProgressContext } from '../../providers/progress_provider';
 
 const ChallengeCompleteContainer = ({skill_id}) => {
 	const {
-		toggleNumberSino,
-		toggleNumberNative,
-		toggleBasicConsonants,
-		toggleBasicVowels,
-		toggleDoubleVowels,
-		toggleBasicWords1
+		handleSetProgressState
 	} = useContext(ProgressContext);
 
 	useEffect( () => {
 		challenge_completed.play();
-		switch (skill_id) {
-			case 'number_sino':
-				toggleNumberSino(true);
-				break
-			case 'number_native':
-				toggleNumberNative(true);
-				break
-			case 'basic_consonants':
-				toggleBasicConsonants(true);
-				break
-			case 'basic_vowels':
-				toggleBasicVowels(true);
-				break
-			case 'double_vowels':
-				toggleDoubleVowels(true);
-				break
-			case 'basic_words_1':
-				toggleBasicWords1(true);
-				break
-			default:
-		}
+		handleSetProgressState(skill_id , true);
 	});
 
 	const challenge_completed = new UIfx(challenge_completed_sound, { volume: 0.7 });

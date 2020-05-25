@@ -4,7 +4,7 @@ import OverviewIcon from "../../components/Overview-Icon/Overview-Icon";
 import { ProgressContext } from "../../providers/progress_provider";
 
 const OverviewPage = () => {
-	const { number, alphabet } = useContext(ProgressContext);
+	const { allNumberCompleted, allAlphabetCompleted } = useContext(ProgressContext);
 	
 	return (
 	<div className="OverviewPage">
@@ -13,13 +13,13 @@ const OverviewPage = () => {
 				className="overview-Icon"
 				title="Number"
 				link='/number'
-				completed={number}
+				completed={allNumberCompleted}
 			/>
 			<OverviewIcon
 				className="overview-Icon"
 				title="Alphabet"
 				link='/alphabet'
-				completed={alphabet}
+				completed={allAlphabetCompleted}
 			/>
 		</div>
 	</div>

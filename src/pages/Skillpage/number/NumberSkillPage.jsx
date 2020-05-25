@@ -4,7 +4,12 @@ import SkillIcon from "../../../components/Skill-Icon/Skill-Icon";
 import{ ProgressContext } from '../../../providers/progress_provider';
 
 const NumberSkillPage = () => {
-	const { numberSino, numberNative } = useContext(ProgressContext);
+	const {
+		progressState: {
+			number_sino,
+			number_native,
+		},
+	} = useContext(ProgressContext);
 
 	return (
 	<div className="SkillPage">
@@ -13,14 +18,14 @@ const NumberSkillPage = () => {
 				className="Skill-Icon"
 				title="Number (Sino)"
 				id="number_sino"
-				completed={numberSino}
+				completed={number_sino}
 			/>
 
 			<SkillIcon
 				className="Skill-Icon"
 				title="Number (Native)"
 				id="number_native"
-				completed={numberNative}
+				completed={number_native}
 			/>
 		</div>
 	</div>

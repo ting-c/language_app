@@ -48,9 +48,9 @@ const LessonPage = ({ match }) => {
 				lesson: basic_consonants,
 			};
 			cardProps = {
-				top: null,
+				top: 'romanization',
 				middle: "korean_char",
-				bottom: "romanization",
+				bottom: "sound",
 			};
 			challengeGenerator = generateBasicConsonantsChallenge;
 			challengeCompleteProps = { skill_id };
