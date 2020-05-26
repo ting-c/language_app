@@ -16,9 +16,13 @@
     -webkit-animation-timing-function: cubic-bezier(.17,.43,.39,.98);
     -moz-animation-timing-function: cubic-bezier(.17,.43,.39,.98);
     animation-timing-function: cubic-bezier(.17,.43,.39,.98);
+    & :active {
+      transform: translateY(0.2rem);
+    }
 
     .card-top {
       font-size: 1.2rem;
+      
     }
     .card-middle {
       font-size: 2rem;

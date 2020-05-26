@@ -10,7 +10,7 @@ import UIfx from 'uifx';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
-const ChallengeContainer = ({ challengeCompleteProps, header, content, contentType, options, answer, optionsAndAnswerType, setNextChallenge, challengeGenerator }) => {
+const ChallengeContainer = ({ challengeCompleteProps, header, content, contentType, options, answer, optionsAndAnswerType, setNextChallenge, challengeGenerator, skill_id }) => {
 
 	const correct = new UIfx(
 		correctSound,
@@ -65,11 +65,9 @@ const ChallengeContainer = ({ challengeCompleteProps, header, content, contentTy
 				<div className='display-challenge'>
 					<ProgressBar animated now={progress} />
 					<ChallengeHeader {...{ header }} />
-					<ChallengeContent {...{ content, contentType }} />
+					<ChallengeContent {...{ content, contentType, skill_id }} />
 					<ChallengeOptions
-						options={options}
-						optionsAndAnswerType={optionsAndAnswerType}
-						setCheckButtonAndOptionId={setCheckButtonAndOptionId}
+						{...{options, optionsAndAnswerType, setCheckButtonAndOptionId, skill_id }}
 					/>
 					{showFooter ? (
 						<div className={`footer-${footerColor}`}>

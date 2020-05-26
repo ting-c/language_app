@@ -2,7 +2,7 @@ import React from 'react';
 import './LessonContainer.styles.scss';
 import CardGroup from './../CardGroup/CardGroup';
 
-const LessonContainer = ({lesson, listName, cardProps}) => {
+const LessonContainer = ({lesson, skill_id , cardProps}) => {
 
   const introduction = lesson.introduction;
   const list = lesson.list
@@ -12,7 +12,7 @@ const LessonContainer = ({lesson, listName, cardProps}) => {
       <div className='introduction' >
         { introduction }
       </div>
-      <CardGroup {...{list}} {...cardProps}/>
+      <CardGroup {...{ list, skill_id }} {...cardProps} />
     </div>
   )
 };

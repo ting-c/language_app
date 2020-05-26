@@ -154,16 +154,17 @@ const LessonPage = ({ match, history }) => {
 			{displayChallenge ? (
 				<div>
 					<ChallengeContainer
-						{...{ challengeCompleteProps }}
+						{...{ challengeCompleteProps, 
+							setNextChallenge, 
+							challengeGenerator, 
+							skill_id }}
 						{...challengeProps}
-						{...{ setNextChallenge }}
-						{...{ challengeGenerator }}
 					/>
 					<LessonButton {...{ toggleDisplayChallenge }} />
 				</div>
 			) : (
 				<div>
-					<LessonContainer {...lessonProps} {...{ cardProps }} />
+					<LessonContainer {...lessonProps} {...{ cardProps, skill_id }} />
 					<ChallengeButton {...{ toggleDisplayChallenge }} />
 					<BackButton {...{ history }} />
 				</div>
