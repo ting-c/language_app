@@ -35,12 +35,6 @@ const AlphabetSkillPage = ({ history }) => {
 			/>
 			<SkillIcon
 				className="Skill-Icon"
-				title="Double Vowels"
-				id="double_vowels"
-				completed={double_vowels}
-			/>
-			<SkillIcon
-				className="Skill-Icon"
 				title="Basic Words 1"
 				id="basic_words_1"
 				completed={basic_words_1}
@@ -68,6 +62,12 @@ const AlphabetSkillPage = ({ history }) => {
 				title="Basic Words 5"
 				id="basic_words_5"
 				completed={basic_words_5}
+			/>
+			<SkillIcon
+				className="Skill-Icon"
+				title="Double Vowels"
+				id="double_vowels"
+				completed={double_vowels}
 			/>
 		</div>
 		<BackButton {...{ history }} />

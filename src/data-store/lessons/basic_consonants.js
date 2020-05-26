@@ -1,4 +1,4 @@
-export const basic_consonants = {
+const basic_consonants = {
   title: "Basic Consonants",
 
   introduction: `The Korean Language (Hangul) has nineteen consonants and there are fourteen basic consonants (ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ). Five basic consonants were created by inspiration from the shape of the oral cavity. “ㄱ ㄴ ㅁ ㅅ ㅇ” are the five letters and they formed the basis of other consonant letters. Notice that these letters  ㄷ, ㅂ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ all look similar to the five consonant letters with slight modifications. 
@@ -93,53 +93,4 @@ However the pronunciation and romanization of Korean consonant is determined by 
   ],
 };
 
-const generateRandomTypes = () => {
-  const types = ["korean_char", "romanization"];
-  
-	let bothAreSameTypes = true;
-	let contentType, optionsAndAnswerType;
-	while (bothAreSameTypes) {
-		contentType = types[Math.floor(Math.random() * types.length)];
-		optionsAndAnswerType = types[Math.floor(Math.random() * types.length)];
-		if (optionsAndAnswerType !== contentType) {
-			bothAreSameTypes = false;
-		}
-	}
-	return { contentType, optionsAndAnswerType };
-};
-
-export const generateBasicConsonantsChallenge = () => {
-  const { contentType, optionsAndAnswerType } = generateRandomTypes();
-  
-  const lesson_name = basic_consonants;
-
-	const convertTypeToText = {
-		korean_char: "korean character",
-		sound: "sound",
-		romanization: "romanization",
-	};
-
-	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
-
-	const list = lesson_name.list;
-	const random_option = list[Math.floor(Math.random() * list.length)];
-	const incorrect_random_options = list.filter(
-		option => option.id !== random_option.id
-	);
-
-	const answer = random_option;
-	const content = random_option;
-	const incorrect_options = incorrect_random_options.slice(0, 3);
-	const unshuffled_options = [...incorrect_options, answer];
-
-	const options = unshuffled_options.sort(() => Math.random() - 0.5);
-
-	return {
-		header,
-		content,
-		contentType,
-		options,
-		answer,
-		optionsAndAnswerType,
-	};
-};
+export default basic_consonants;

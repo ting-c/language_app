@@ -11,15 +11,15 @@ const OverviewPage = () => {
 		<div className="overview-map">
 			<OverviewIcon
 				className="overview-Icon"
-				title="Number"
-				link='/number'
-				completed={allNumberCompleted}
-			/>
-			<OverviewIcon
-				className="overview-Icon"
 				title="Alphabet"
 				link='/alphabet'
 				completed={allAlphabetCompleted}
+			/>
+			<OverviewIcon
+				className="overview-Icon"
+				title="Number"
+				link='/number'
+				completed={allNumberCompleted}
 			/>
 		</div>
 	</div>

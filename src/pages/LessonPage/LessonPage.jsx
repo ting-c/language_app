@@ -5,16 +5,17 @@ import ChallengeContainer from "../../components/ChallengeContainer/ChallengeCon
 import ChallengeButton from "../../components/ChallengeButton/ChallengeButton";
 import LessonButton from "../../components/LessonButton/LessonButton";
 import BackButton from '../../components/BackButton/BackButton';
-import { number_sino, generateNumberSinoChallenge } from "../../data-store/lessons-challenges/number_sino";
-import { number_native, generateNumberNativeChallenge } from "../../data-store/lessons-challenges/number_native";
-import { basic_consonants, generateBasicConsonantsChallenge } from "../../data-store/lessons-challenges/basic_consonants";
-import { basic_vowels, generateBasicVowelsChallenge } from "../../data-store/lessons-challenges/basic_vowels";
-import { double_vowels, generateDoubleVowelsChallenge } from "../../data-store/lessons-challenges/double_vowels";
-import { basic_words_1, generateBasicWords1Challenge } from "../../data-store/lessons-challenges/basic_words_1";
-import { basic_words_2, generateBasicWords2Challenge } from "../../data-store/lessons-challenges/basic_words_2";
-import { basic_words_3, generateBasicWords3Challenge } from "../../data-store/lessons-challenges/basic_words_3";
-import { basic_words_4, generateBasicWords4Challenge } from "../../data-store/lessons-challenges/basic_words_4";
-import { basic_words_5, generateBasicWords5Challenge } from "../../data-store/lessons-challenges/basic_words_5";
+import number_sino from "../../data-store/lessons/number_sino";
+import number_native from "../../data-store/lessons/number_native";
+import basic_consonants from "../../data-store/lessons/basic_consonants";
+import basic_vowels from "../../data-store/lessons/basic_vowels";
+import double_vowels from "../../data-store/lessons/double_vowels";
+import basic_words_1 from "../../data-store/lessons/basic_words_1";
+import basic_words_2 from "../../data-store/lessons/basic_words_2";
+import basic_words_3 from "../../data-store/lessons/basic_words_3";
+import basic_words_4 from "../../data-store/lessons/basic_words_4";
+import basic_words_5 from "../../data-store/lessons/basic_words_5";
+import generateChallenge from '../../data-store/challenge/challenge_generator';
 
 const LessonPage = ({ match, history }) => {
   const { skill_id } = match.params
@@ -30,7 +31,7 @@ const LessonPage = ({ match, history }) => {
 				bottom: "romanization",
 			};
 
-			challengeGenerator = generateNumberSinoChallenge;
+			challengeGenerator = generateChallenge(number_sino, 'romanization', 'numeral','korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 
@@ -43,7 +44,7 @@ const LessonPage = ({ match, history }) => {
 				middle: "korean_char",
 				bottom: "romanization",
 			};
-			challengeGenerator = generateNumberNativeChallenge;
+			challengeGenerator = generateChallenge(number_native, 'romanization', 'numeral','korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 		case "basic_consonants":
@@ -55,7 +56,7 @@ const LessonPage = ({ match, history }) => {
 				middle: "korean_char",
 				bottom: "sound",
 			};
-			challengeGenerator = generateBasicConsonantsChallenge;
+			challengeGenerator = generateChallenge(basic_consonants, 'romanization', 'korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 		case "basic_vowels":
@@ -67,7 +68,7 @@ const LessonPage = ({ match, history }) => {
 				middle: "korean_char",
 				bottom: "romanization",
 			};
-			challengeGenerator = generateBasicVowelsChallenge;
+			challengeGenerator = generateChallenge(basic_vowels, 'romanization', 'korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 		case "double_vowels":
@@ -79,7 +80,7 @@ const LessonPage = ({ match, history }) => {
 				middle: "korean_char",
 				bottom: "romanization",
 			};
-			challengeGenerator = generateDoubleVowelsChallenge;
+			challengeGenerator = generateChallenge(double_vowels, 'romanization', 'korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 		case "basic_words_1":
@@ -91,7 +92,7 @@ const LessonPage = ({ match, history }) => {
 				middle: "korean_char",
 				bottom: "romanization",
 			};
-			challengeGenerator = generateBasicWords1Challenge;
+			challengeGenerator = generateChallenge(basic_words_1, 'romanization', 'korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 		case "basic_words_2":
@@ -103,7 +104,7 @@ const LessonPage = ({ match, history }) => {
 				middle: "korean_char",
 				bottom: "romanization",
 			};
-			challengeGenerator = generateBasicWords2Challenge;
+			challengeGenerator = generateChallenge(basic_words_2, 'romanization', 'korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 		case "basic_words_3":
@@ -115,7 +116,7 @@ const LessonPage = ({ match, history }) => {
 				middle: "korean_char",
 				bottom: "romanization",
 			};
-			challengeGenerator = generateBasicWords3Challenge;
+			challengeGenerator = generateChallenge(basic_words_3, 'romanization', 'korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 		case "basic_words_4":
@@ -127,7 +128,7 @@ const LessonPage = ({ match, history }) => {
 				middle: "korean_char",
 				bottom: "romanization",
 			};
-			challengeGenerator = generateBasicWords4Challenge;
+			challengeGenerator = generateChallenge(basic_words_4, 'romanization', 'korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 		case "basic_words_5":
@@ -139,7 +140,7 @@ const LessonPage = ({ match, history }) => {
 				middle: "korean_char",
 				bottom: "romanization",
 			};
-			challengeGenerator = generateBasicWords5Challenge;
+			challengeGenerator = generateChallenge(basic_words_5, 'romanization', 'korean_char');
 			challengeCompleteProps = { skill_id };
 			break;
 		default:

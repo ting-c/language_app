@@ -1,4 +1,4 @@
-export const number_sino = {
+const number_sino = {
 	introduction: `Did you know that the Korean language has two regularly used generates of numerals, a native Korean system and Sino-Korean system ? The “Sino number system” (eel, ee, sam, etc) is used for talking about sums of money, telephone numbers, etc.`,
 
 	list: [
@@ -75,46 +75,4 @@ export const number_sino = {
 	],
 };
 
-const types = ['numeral', 'korean_char', 'romanization'];
-const generateRandomTypes = () => {
-		let bothAreSameTypes = true;
-		let contentType, optionsAndAnswerType;
-		while (bothAreSameTypes) {
-			contentType = types[Math.floor(Math.random() * types.length)];
-			optionsAndAnswerType = types[Math.floor(Math.random() * types.length)];
-			if (optionsAndAnswerType !== contentType) {
-				bothAreSameTypes = false;
-			}
-		}
-		return { contentType, optionsAndAnswerType };		
-	};
-
-export const generateNumberSinoChallenge = () => {	
-	const { contentType, optionsAndAnswerType } = generateRandomTypes();
-
-	const lesson_name = number_sino;
-
-	const convertTypeToText = {
-		korean_char: 'korean character',
-		numeral: 'numeral',
-		romanization: 'romanization',
-	};
-
-	const header = `Choose the correct ${convertTypeToText[optionsAndAnswerType]} for the ${convertTypeToText[contentType]}`;
-
-	const list = lesson_name.list;
-	const random_option = list[Math.floor(Math.random() * list.length)];
-	const incorrect_random_options = list.filter(
-		option => option.id !== random_option.id
-	);
-
-	const answer = random_option;
-	const content = random_option;
-	const incorrect_options = incorrect_random_options.slice(0, 3);
-	const unshuffled_options = [...incorrect_options, answer];
-	
-	
-	const options = unshuffled_options.sort(() => Math.random() - 0.5);
-
-	return { header, content, contentType, options, answer, optionsAndAnswerType };
-};
+export default number_sino;

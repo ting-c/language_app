@@ -22,8 +22,7 @@ const ProgressProvider = ({ children }) => {
   const [progressState, setProgressState] = useState(
     existInLocalStorage ? JSON.parse(existInLocalStorage) : INITIAL_STATE);
 
-  useEffect(() => {
-    
+  useEffect(() => {    
     localStorage.setItem('progressState', JSON.stringify(progressState));
   });
 
