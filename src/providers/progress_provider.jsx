@@ -3,66 +3,74 @@ import React, { useState, createContext, useEffect } from 'react';
 export const ProgressContext = createContext();
 
 const ProgressProvider = ({ children }) => {
+  const ALL_NUMBER_TOPICS = [
+    'number_sino',
+    'number_native'
+  ];
+  const ALL_ALPHABET_TOPICS = [
+    'basic_consonants',
+		'basic_vowels',
+		'double_vowels',
+		'basic_words_1',
+		'basic_words_2',
+		'basic_words_3',
+		'basic_words_4',
+		'basic_words_5',
+  ];
 
-  const INITIAL_STATE = {
-		number_sino: false,
-		number_native: false,
-		basic_consonants: false,
-		basic_vowels: false,
-		double_vowels: false,
-		basic_words_1: false,
-		basic_words_2: false,
-		basic_words_3: false,
-		basic_words_4: false,
-		basic_words_5: false,
+  const setInitialState = () => {
+    const INITIAL_STATE = {};
+    [ ...ALL_NUMBER_TOPICS, ...ALL_ALPHABET_TOPICS ].forEach(
+        topic => INITIAL_STATE[topic] = false
+    );
+    return INITIAL_STATE;
   };
-
+  
   const existInLocalStorage = localStorage.getItem('progressState');  
 
   const [progressState, setProgressState] = useState(
-    existInLocalStorage ? JSON.parse(existInLocalStorage) : INITIAL_STATE);
+    existInLocalStorage ? JSON.parse(existInLocalStorage) : setInitialState);
 
   useEffect(() => {    
     localStorage.setItem('progressState', JSON.stringify(progressState));
   });
 
   const handleSetProgressState = (lesson, val) => { 
-    if (progressState[lesson] === false) {
+    if (!progressState[lesson]) {
       setProgressState( { ...progressState, [lesson] : val } );
     }; 
   };
-
-  const resetProgress = () => {
-    setProgressState(INITIAL_STATE);
+  
+  const resetProgress = () => setProgressState(setInitialState);
+  
+  const progressChecker = {    
+    calculate : (topic) => {
+      switch (topic) {
+        case 'number':
+          return ALL_NUMBER_TOPICS.reduce( (trueCount, topic) =>  
+          trueCount + (progressState[topic] ? 1 : 0), 0 ) / ALL_NUMBER_TOPICS.length;
+        case 'alphabet':
+          return ALL_ALPHABET_TOPICS.reduce( (trueCount, topic) => 
+          trueCount + (progressState[topic] ? 1 : 0), 0 ) / ALL_ALPHABET_TOPICS.length;
+        default:
+      }
+    },
+    isCompleted : topic => progressChecker.calculate(topic) === 1
   };
-
-  const allNumberCompleted = (
-    progressState.number_sino && 
-    progressState.number_native
-  );
-
-  const allAlphabetCompleted = (
-    progressState.basic_consonants &&
-    progressState.basic_vowels &&
-    progressState.double_vowels &&
-    progressState.basic_words_1 &&
-    progressState.basic_words_2 &&
-    progressState.basic_words_3 &&
-    progressState.basic_words_4 &&
-    progressState.basic_words_5
-  );
-
+  
+  const isAllNumberCompleted = progressChecker.isCompleted("number");
+  const isAllAlphabetCompleted = progressChecker.isCompleted("alphabet");
+  
   return (
     <ProgressContext.Provider
       value={{
         resetProgress,
         handleSetProgressState,
         progressState,
-        allNumberCompleted,
-        allAlphabetCompleted,
+        isAllNumberCompleted,
+        isAllAlphabetCompleted,
       }}
-    >
-      {children}
+    > {children}
     </ProgressContext.Provider>
   );
 };

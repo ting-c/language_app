@@ -67,7 +67,7 @@ const ChallengeContainer = ({ challengeCompleteProps, header, content, contentTy
 					<ChallengeHeader {...{ header }} />
 					<ChallengeContent {...{ content, contentType, skill_id }} />
 					<ChallengeOptions
-						{...{options, optionsAndAnswerType, setCheckButtonAndOptionId, skill_id }}
+						{...{ options, optionsAndAnswerType, setCheckButtonAndOptionId, skill_id, contentType }}
 					/>
 					{showFooter ? (
 						<div className={`footer-${footerColor}`}>

@@ -4,7 +4,6 @@ import UIfx from "uifx";
 
 
 const CardGroup = ({ list, skill_id, top, middle, bottom }) => {
-	console.log(skill_id)
 	return (
 		<div className="CardGroup">
 			{ list.map((item) => {

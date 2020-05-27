@@ -3,7 +3,7 @@ import './ChallengeOptions.styles.scss';
 import UIfx from "uifx";
 
 const ChallengeOptions = ({	options, optionsAndAnswerType, setCheckButtonAndOptionId,
-	skill_id
+	skill_id, contentType
 }) => {
 	return (
 		<div className="ChallengeOptions">
@@ -13,7 +13,7 @@ const ChallengeOptions = ({	options, optionsAndAnswerType, setCheckButtonAndOpti
 				const handleClick = async (skill_id, option_id) => {
 					setCheckButtonAndOptionId(option_id);
 					const noSound = ["basic_consonants"];
-					if (noSound.includes(skill_id) || optionsAndAnswerType !== 'romanization') return;
+					if (noSound.includes(skill_id) || contentType === 'romanization') return;
 
 					const soundFile = await import(
 						`../../data-store/audio/${skill_id}/${option_id}.wav`
