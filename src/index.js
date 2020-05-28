@@ -10,7 +10,7 @@ ReactDOM.render(
   <ProgressProvider>
     <BrowserRouter>
       <App />
-    </BrowserRouter>,
+    </BrowserRouter>
   </ProgressProvider>,
   document.getElementById('root')
 );

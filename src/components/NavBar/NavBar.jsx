@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import './NavBar.styles.scss';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 import logo from './../../img/logo.png';
 import avatar from './../../img/avatar.png';
 import { ProgressContext } from '../../providers/progress_provider';
+import { firebaseAuth, firestore } from '../../firebase/firebase';
 
-const NavBar = () => {
+const NavBar = ({ history, currentUser }) => {
 	const { resetProgress } = useContext(ProgressContext);
 
 	const handleResetProgress = () => {
@@ -17,10 +18,21 @@ const NavBar = () => {
 		};
 	};
 
+	const handleSignOut = async () => {
+		try {
+			await firebaseAuth.signOut();
+			alert('Sign out succesfully');
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
 	return (
 		<Navbar className="NavBar">
 			<Navbar.Brand className="logo-container">
-				<Link to='/'><img className="logo" src={logo} alt="Logo" /></Link>
+				<Link to="/">
+					<img className="logo" src={logo} alt="Logo" />
+				</Link>
 			</Navbar.Brand>
 			<Navbar.Toggle />
 			<Navbar.Collapse>
@@ -30,13 +42,31 @@ const NavBar = () => {
 						alignRight
 						title={<img className="avatar" src={avatar} alt="Avatar" />}
 					>
-						<NavDropdown.Item className='dropdown-item'>Sign In</NavDropdown.Item>
-						<div className='divider'></div>
-						<NavDropdown.Item className='dropdown-item' onClick={handleResetProgress}>Reset Progress</NavDropdown.Item>
+						{currentUser ? (
+							<NavDropdown.Item
+								className="dropdown-item"
+								onClick={handleSignOut}
+							>
+								Sign Out
+							</NavDropdown.Item>
+						) : (
+							<NavDropdown.Item
+								className="dropdown-item"
+								onClick={() => history.push("/signin")}
+							>
+								Sign In
+							</NavDropdown.Item>
+						)}
+						<NavDropdown.Item
+							className="dropdown-item"
+							onClick={handleResetProgress}
+						>
+							Reset Progress
+						</NavDropdown.Item>
 					</NavDropdown>
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>
-)};
+	);};
 
-export default NavBar;
+export default withRouter(NavBar);

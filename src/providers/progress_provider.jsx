@@ -9,13 +9,13 @@ const ProgressProvider = ({ children }) => {
   ];
   const ALL_ALPHABET_TOPICS = [
     'basic_consonants',
-		'basic_vowels',
-		'double_vowels',
-		'basic_words_1',
-		'basic_words_2',
-		'basic_words_3',
-		'basic_words_4',
-		'basic_words_5',
+    'basic_vowels',
+    'double_vowels',
+    'basic_words_1',
+    'basic_words_2',
+    'basic_words_3',
+    'basic_words_4',
+    'basic_words_5',
   ];
 
   const setInitialState = () => {
