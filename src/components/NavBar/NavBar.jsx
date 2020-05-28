@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 import logo from './../../img/logo.png';
-import avatar from './../../img/avatar.png';
+import Avatar from '../Avatar/Avatar';
 import { ProgressContext } from '../../providers/progress_provider';
 import { firebaseAuth } from '../../firebase/firebase';
 
@@ -40,9 +40,9 @@ const NavBar = ({ history, currentUser }) => {
 					<NavDropdown
 						className="dropdown"
 						alignRight
-						title={<img className="avatar" src={avatar} alt="Avatar" />}
+						title={<Avatar />}
 					>
-						{currentUser ? (
+						{currentUser ? ( 
 							<NavDropdown.Item
 								className="dropdown-item"
 								onClick={handleSignOut}

@@ -7,17 +7,19 @@
   .header {
     margin: 20px 0 50px 0;
     text-align: center;
-    font-size: 30px;
+    font-size: 2rem;
   }
 
   .get-started-button, .sign-in-button {
     border-radius: 5px;
     margin: 10px 0;
-    width: 150px;
+    height: 2.5rem;
+    width: 10rem;
     justify-self: center;
-    background-color: rgb(61, 46, 197);
+    background-color: rgb(68, 65, 255);
     border: none;
     font-weight: 600;
+    font-size: 1.2rem;
   }
 
 }

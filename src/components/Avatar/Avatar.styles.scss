@@ -1,0 +1,25 @@
+.avatar {
+  height: 100%;
+  position: relative;
+  text-align: center;
+  .avatar-container {
+    height: 100%;
+    .avatar-circle {
+      position: relative;
+      display: inline-block;
+      height: 100%;
+    };
+    .initial {
+      z-index: 999;
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      top: 6%;
+      color:white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+}
