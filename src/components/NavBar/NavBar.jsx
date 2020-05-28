@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import logo from './../../img/logo.png';
 import avatar from './../../img/avatar.png';
 import { ProgressContext } from '../../providers/progress_provider';
-import { firebaseAuth, firestore } from '../../firebase/firebase';
+import { firebaseAuth } from '../../firebase/firebase';
 
 const NavBar = ({ history, currentUser }) => {
 	const { resetProgress } = useContext(ProgressContext);

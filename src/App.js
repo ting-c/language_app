@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import "./App.scss";
 import { Route, Redirect } from 'react-router-dom';
-import { firebaseAuth, firestore } from './firebase/firebase';
+import { UserContext } from './providers/user_provider';
 import NavBar from './components/NavBar/NavBar';
 import HomePage from './pages/HomePage/HomePage';
 import SignInAndSignUpPage from './pages/SignInAndSignUpPage/SignInAndSignUpPage';
@@ -12,18 +12,7 @@ import LessonPage from './pages/LessonPage/LessonPage';
 
 const App = () => {
 
-  const [currentUser, setCurrentUser] = useState(null);
-
-  useEffect(() => {
-    const unsubscribeFromAuth = firebaseAuth.onAuthStateChanged( user => {
-        user ? setCurrentUser(user) : setCurrentUser(null)
-    })
-    return () => {
-      unsubscribeFromAuth();
-    }
-  });
-
-  console.log(currentUser);
+  const { currentUser } = useContext(UserContext);
 
   return (
       <div className="App">
