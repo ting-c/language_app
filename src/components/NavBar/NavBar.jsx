@@ -28,7 +28,7 @@ const NavBar = ({ history, currentUser }) => {
 	};
 
 	return (
-		<Navbar className="NavBar">
+		<Navbar className="NavBar" sticky='top' >
 			<Navbar.Brand className="logo-container">
 				<Link to="/">
 					<img className="logo" src={logo} alt="Logo" />
