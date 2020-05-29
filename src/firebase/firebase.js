@@ -26,9 +26,8 @@ export const googleSignIn = async () => {
 
   const userExistsInFirestore = await firestore.collection('users').doc(user.uid).get();
   if (userExistsInFirestore.exists) return;
-  // set user in firestore if not exists
+  // set user document in firestore if not already exists
   try {
-    console.log(user);
     const { uid, displayName, email } = user;
     firestore.collection('users').doc(uid).set({
       name: displayName,
@@ -38,4 +37,41 @@ export const googleSignIn = async () => {
   } catch(err) {
     console.log(err);
   };
+};
+
+export const signIn = async (email, password) => {
+	if (!email || !password) {
+		alert("Email and password must be entered to sign in");
+		return;
+	};
+	try {
+		await firebaseAuth.signInWithEmailAndPassword(email, password);
+	} catch (err) {
+		alert(err.message);
+	};
+};
+
+export const signUp = async (name, email, password, confirmPassword) => {
+  if (password !== confirmPassword) {
+		alert("Please enter the same passwords");
+		return;
+	}
+	try {
+		const userCred = await firebaseAuth.createUserWithEmailAndPassword(
+			email,
+			password
+		);
+		// unique user Id
+		const {
+			user: { uid },
+		} = userCred;
+		firestore.collection("users").doc(uid).set({
+			name,
+			email,
+			createdAt: new Date(),
+    });
+    alert('You have successfully registered and logged in.')
+	} catch (err) {
+		alert(err.message);
+	}
 }

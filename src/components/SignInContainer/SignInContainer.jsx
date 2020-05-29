@@ -1,29 +1,17 @@
 import React, { useState } from "react";
 import "./SignInContainer.styles.scss";
 import GoogleIcon from '../../img/google-icon.png';
-import { googleSignIn, firebaseAuth } from '../../firebase/firebase';
+import { googleSignIn, signIn } from '../../firebase/firebase';
 
 const SignInContainer = ({ toggleDisplaySignIn }) => {
 
   const [email, updateEmail] = useState(null);
   const [password, updatePassword] = useState(null);
 
-  const handleSignIn = async (e, isGoogle) => {
+  const handleSignIn = (e, isGoogle) => {
 		e.preventDefault();
-		if (isGoogle) {
-			googleSignIn();
-		} else {
-			if (!email || !password) {
-				alert('Email and password must be entered to sign in');
-				return
-			};
-			try {
-				await firebaseAuth.signInWithEmailAndPassword(email, password);
-			} catch (err) {
-				alert(err.message);
-			}
-		};		
-  }
+		isGoogle ? googleSignIn() :	signIn(email, password);
+  };
 
 	return (
 		<div className="sign-in-container">

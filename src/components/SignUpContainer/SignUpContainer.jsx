@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SignUpContainer.styles.scss";
-import { firebaseAuth, firestore } from '../../firebase/firebase';
+import { signUp } from '../../firebase/firebase';
 
 const SignUpContainer = ({ toggleDisplaySignIn }) => {
 
@@ -9,25 +9,9 @@ const SignUpContainer = ({ toggleDisplaySignIn }) => {
   const [password, updatePassword] = useState(null);
   const [confirmPassword, updateConfirmPassword] = useState(null);
 
-  const handleSignUp = async (e) => {
+  const handleSignUp = (e) => {
 		e.preventDefault();
-		if (password !== confirmPassword) {
-			 alert('Please enter the same passwords'); 
-			 return 
-		};
-		try { 
-			const userCred = await firebaseAuth.createUserWithEmailAndPassword(email, password);
-			console.log(userCred);
-			// unique user Id
-			const { user: { uid } } = userCred;
-			firestore.collection('users').doc(uid).set({
-				name,
-				email,
-				createdAt: new Date()
-			})
-		} catch (err) {
-			alert(err.message);
-		}
+		signUp(name, email, password, confirmPassword);
   };
 
 	return (
