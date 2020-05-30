@@ -12,7 +12,7 @@ const UserProvider = ({ children }) => {
 			if (user) {
         const userDoc = await firestore.collection('users').doc(user.uid).get();
         const userData = userDoc.data();
-        if (!currentUser) { setCurrentUser(userData) };    
+        if (!currentUser) { setCurrentUser({...userData, uid: user.uid}) };    
 			} else {
 				setCurrentUser(null);
 			}

@@ -1,4 +1,6 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext, useEffect, useContext } from 'react';
+import { firestore } from '../firebase/firebase';
+import { UserContext } from './user_provider';
 
 export const ProgressContext = createContext();
 
@@ -17,21 +19,55 @@ const ProgressProvider = ({ children }) => {
     'basic_words_4',
     'basic_words_5',
   ];
-
+  
   const setInitialState = () => {
     const INITIAL_STATE = {};
     [ ...ALL_NUMBER_TOPICS, ...ALL_ALPHABET_TOPICS ].forEach(
-        topic => INITIAL_STATE[topic] = false
-    );
-    return INITIAL_STATE;
+      topic => INITIAL_STATE[topic] = false
+      );
+      return INITIAL_STATE;
+    };
+    
+  const { currentUser } = useContext(UserContext);
+    
+  const setUserProgressInFirestore = async () => {
+    try {
+      await firestore.collection('progress').doc(currentUser.uid).set(progressState);
+    } catch (err) {
+      console.log(err);
+    }
   };
   
-  const existInLocalStorage = localStorage.getItem('progressState');  
+	const getUserProgressFromFirestore = async () => {
+		const userProgressDoc = await firestore
+			.collection("progress")
+			.doc(currentUser.uid)
+      .get();
 
-  const [progressState, setProgressState] = useState(
-    existInLocalStorage ? JSON.parse(existInLocalStorage) : setInitialState);
+    if (userProgressDoc.exists) { 
+      return userProgressDoc.data()       
+    } else {
+      await setUserProgressInFirestore();
+      return getUserProgressFromFirestore();
+    }
+  };
+  
+  const existInLocalStorage = localStorage.getItem('progressState');
 
-  useEffect(() => {    
+  const getUserProgressFromLocalStorage = () => (
+    existInLocalStorage ? JSON.parse(existInLocalStorage) : setInitialState()
+  );
+
+  const getUserProgress = () => ( currentUser ? 
+    getUserProgressFromFirestore() : getUserProgressFromLocalStorage() 
+  );
+
+  const [progressState, setProgressState] = useState( getUserProgress() );
+
+  console.log(progressState);
+
+  useEffect( () => {
+    currentUser ? setUserProgressInFirestore() : 
     localStorage.setItem('progressState', JSON.stringify(progressState));
   });
 
