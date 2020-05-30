@@ -8,7 +8,7 @@ const SkillIcon = ({ title, id, completed, isUnlocked }) => {
 	const iconImage = completed ? skillIconImage : skillIconImageGrey
 
 	const displaySignInMessage = () =>  (	
-		window.alert('Please sign in to unlock the lesson')
+		window.alert('Please sign in to unlock all the lessons.')
 	);
 
 	return (

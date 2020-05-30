@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./LessonPage.styles.scss";
+import { UserContext } from '../../providers/user_provider';
 import LessonContainer from "../../components/LessonContainer/LessonContainer";
 import ChallengeContainer from "../../components/ChallengeContainer/ChallengeContainer";
 import ChallengeButton from "../../components/ChallengeButton/ChallengeButton";
@@ -19,7 +20,8 @@ import generateChallenge from '../../data-store/challenge/challenge_generator';
 
 const LessonPage = ({ match, history }) => {
   const { skill_id } = match.params
-  let lessonProps, cardProps, challengeGenerator, challengeCompleteProps;
+	let lessonProps, cardProps, challengeGenerator, challengeCompleteProps;
+
   switch (skill_id) {
 		case "number_sino":
 			lessonProps = {
@@ -148,6 +150,10 @@ const LessonPage = ({ match, history }) => {
 
 	const [displayChallenge, toggleDisplayChallenge] = useState(false);
 	const [challengeProps, setNextChallenge] = useState(challengeGenerator);
+
+	const { currentUser } = useContext(UserContext);
+	const unlockedTopics = ['basic_consonants', 'number_sino']
+	if (!currentUser && !unlockedTopics.includes(skill_id)) return null;
 
 	return (
 		<div className="lesson-page">
