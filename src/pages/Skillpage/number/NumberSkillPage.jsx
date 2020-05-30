@@ -3,6 +3,7 @@ import "./NumberSkillPage.styles.scss";
 import SkillIcon from "../../../components/Skill-Icon/Skill-Icon";
 import BackButton from '../../../components/BackButton/BackButton';
 import{ ProgressContext } from '../../../providers/progress_provider';
+import{ UserContext } from '../../../providers/user_provider';
 
 const NumberSkillPage = ({history}) => {
 	const {
@@ -12,6 +13,8 @@ const NumberSkillPage = ({history}) => {
 		},
 	} = useContext(ProgressContext);
 
+	const { currentUser } = useContext(UserContext);
+
 	return (
 		<div className="SkillPage">
 			<div className="skill-map">
@@ -20,6 +23,7 @@ const NumberSkillPage = ({history}) => {
 					title="Number (Sino)"
 					id="number_sino"
 					completed={number_sino}
+					isUnlocked={true}
 				/>
 
 				<SkillIcon
@@ -27,6 +31,7 @@ const NumberSkillPage = ({history}) => {
 					title="Number (Native)"
 					id="number_native"
 					completed={number_native}
+					isUnlocked={!!currentUser}
 				/>
 			</div>
 			<BackButton {...{ history }} />
