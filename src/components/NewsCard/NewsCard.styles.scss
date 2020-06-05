@@ -1,0 +1,16 @@
+.news-card {
+  box-shadow: 2px 2px 5px 2px rgb(206, 206, 206);
+  width: 100%;
+  margin: 0.8rem 0;
+  max-width: 500px;
+
+  .card-img {
+    width: 100%;
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0.2rem 0.8rem;
+  }
+}

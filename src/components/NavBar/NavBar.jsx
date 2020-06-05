@@ -28,7 +28,7 @@ const NavBar = ({ history, currentUser }) => {
 	};
 
 	return (
-		<Navbar className="NavBar" sticky='top' >
+		<Navbar className="NavBar" sticky="top">
 			<Navbar.Brand className="logo-container">
 				<Link to="/">
 					<img className="logo" src={logo} alt="Logo" />
@@ -37,12 +37,8 @@ const NavBar = ({ history, currentUser }) => {
 			<Navbar.Toggle />
 			<Navbar.Collapse>
 				<Nav className="right-container">
-					<NavDropdown
-						className="dropdown"
-						alignRight
-						title={<Avatar />}
-					>
-						{currentUser ? ( 
+					<NavDropdown className="dropdown" alignRight title={<Avatar />}>
+						{currentUser ? (
 							<NavDropdown.Item
 								className="dropdown-item"
 								onClick={handleSignOut}
@@ -62,6 +58,12 @@ const NavBar = ({ history, currentUser }) => {
 							onClick={handleResetProgress}
 						>
 							Reset Progress
+						</NavDropdown.Item>
+						<NavDropdown.Item
+							className="dropdown-item"
+							onClick={() => history.push("/news")}
+						>
+							KPOP News
 						</NavDropdown.Item>
 					</NavDropdown>
 				</Nav>

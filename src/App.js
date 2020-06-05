@@ -9,6 +9,7 @@ import OverviewPage from './pages/OverviewPage/OverviewPage';
 import AlphabetSkillPage from './pages/Skillpage/alphabet/AlphabetSkillPage';
 import NumberSkillPage from './pages/Skillpage/number/NumberSkillPage';
 import LessonPage from './pages/LessonPage/LessonPage';
+import NewsPage from './pages/NewsPage/NewsPage';
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route exact path='/alphabet' component={AlphabetSkillPage} />
         <Route exact path='/number' component={NumberSkillPage} />
         <Route exact path='/lesson/:skill_id' component={LessonPage} />
+        <Route exact path='/news' component={NewsPage} />
       </div>      
   )
 };
