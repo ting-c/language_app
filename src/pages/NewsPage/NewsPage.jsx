@@ -6,12 +6,17 @@ const NewsPage = () => {
 
   const [newsList, updateNewsList] = useState(null);
 
+  const url = "https://us-central1-korean-app-c9b8e.cloudfunctions.net/api";
+  // const url = 'https://localhost:4000/server';
   const fetchNews = async () => {
     const headers = new Headers({
       "Content-Type": "application/json",
       Accept: "application/json"
     });
-    const newsList = await fetch('http://localhost:4000/server', { headers });
+    const newsList = await fetch(
+			url,
+			{ headers }
+		);
     const newsList_JSON = await newsList.json();
     updateNewsList(newsList_JSON);
   };
