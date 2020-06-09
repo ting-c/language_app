@@ -4,8 +4,14 @@
   align-items: center;
 
   .header {
-    font-weight: 700;
+    font-weight: 900;
     font-size: 1.8rem;
+    margin: 0.2rem;
+  }
+
+  .footer {
+    font-weight: 300;
+    font-size: 1rem;
     margin: 0.2rem;
   }
 }

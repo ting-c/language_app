@@ -63,7 +63,7 @@ const NavBar = ({ history, currentUser }) => {
 							className="dropdown-item"
 							onClick={() => history.push("/news")}
 						>
-							KPOP News
+							News
 						</NavDropdown.Item>
 					</NavDropdown>
 				</Nav>
